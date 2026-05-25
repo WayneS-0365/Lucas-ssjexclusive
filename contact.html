@@ -1,1 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact | SSJ Exclusive Transfers & Tours</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Contact SSJ Exclusive for airport transfers, private tours, and wine tours in Cape Town. Book your luxury experience today." />
+
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">
+      <img src="img/logo.png" class="brand-logo" alt="SSJ Exclusive Logo" />
+      <span class="brand-text">SSJ Exclusive</span>
+    </a>
+
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="airport-transfers.html">Airport Transfers</a>
+      <a href="private-tours.html">Private Tours</a>
+      <a href="wine-tours.html">Wine Tours</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="nav-cta">Book Now</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="background-image:
+  linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(5,6,8,0.95)),
+  url('img/capetown-hero.jpg');">
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <h1>Contact Us</h1>
+    <p>Book your airport transfer or private tour with SSJ Exclusive.</p>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container two-column">
+    <div>
+      <h2>Get In Touch</h2>
+      <p>We’re here to help you plan your perfect Cape Town experience. Whether you need an airport transfer, a private tour, or a custom itinerary, we’ll respond as soon as possible.</p>
+
+      <p><strong>Email (General):</strong> info@ssjexclusive.com<br>
+         <strong>Bookings:</strong> bookings@ssjexclusive.com</p>
+
+      <p><strong>Operating Hours:</strong><br>
+         Monday – Sunday: 06:00 – 22:00</p>
+
+      <p><strong>Service Area:</strong><br>
+         Cape Town & Western Cape</p>
+    </div>
+
+    <div>
+      <form class="booking-form">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your full name" />
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="you@example.com" />
+        </div>
+
+        <div class="form-row">
+          <label for="service">Service Type</label>
+          <select id="service">
+            <option>Airport Transfer</option>
+            <option>Private Tour</option>
+            <option>Wine Tour</option>
+            <option>Custom Request</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="date">Preferred Date</label>
+          <input id="date" type="date" />
+        </div>
+
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" rows="4" placeholder="Tell us how we can assist you..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary full-width">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="container">
+    <h2 class="center">Why Book With Us?</h2>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3>Reliable & On Time</h3>
+        <p>We track your flight and ensure smooth, punctual pickups every time.</p>
+      </div>
+
+      <div class="card">
+        <h3>Luxury Comfort</h3>
+        <p>Clean, spacious vehicles with a premium feel for every journey.</p>
+      </div>
+
+      <div class="card">
+        <h3>Local Expertise</h3>
+        <p>Get recommendations, hidden gems, and insights from a true Cape Town local.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <img src="img/logo.png" class="footer-logo" alt="SSJ Exclusive Logo" />
+      <p>Luxury transfers & private tours in Cape Town, South Africa.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Explore</h4>
+      <a href="airport-transfers.html">Airport Transfers</a>
+      <a href="private-tours.html">Private Tours</a>
+      <a href="wine-tours.html">Wine Tours</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-links">
+      <h4>Info</h4>
+      <a href="why-choose-us.html">Why Choose Us</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="terms.html">Terms & Conditions</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <span>© <span id="year"></span> SSJ Exclusive Transfers & Tours</span>
+    <span class="powered-by">Powered by <a href="https://sysvyn.com" target="_blank">sysvyn.com</a></span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
 
