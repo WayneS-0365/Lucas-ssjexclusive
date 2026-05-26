@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Airport Transfers | SSJ Exclusive Transfers & Tours</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Private airport transfers from Cape Town International Airport. Your host meets you at arrivals, handles the bags, and gets you where you're going — smoothly." />
+  <meta name="keywords" content="Cape Town airport transfer, Cape Town International Airport, private airport shuttle, SSJ Exclusive" />
+  <meta name="author" content="SSJ Exclusive Transfers & Tours" />
+  <meta property="og:title" content="Airport Transfers | SSJ Exclusive" />
+  <meta property="og:description" content="Private airport transfers from Cape Town International. No apps, no surging, no surprises." />
+  <meta property="og:image" content="https://ssjexclusive.com/img/hero-transfers.jpg" />
+  <meta property="og:url" content="https://ssjexclusive.com/airport-transfers.html" />
+  <meta name="theme-color" content="#050608" />
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    :root {
+      --gold: #c9a15a;
+      --gold-light: #e0c080;
+      --dark-bg: #050608;
+      --darker-bg: #020305;
+      --light-bg: #f7f6f3;
+      --text-main: #f2f2f0;
+      --text-muted: #888890;
+      --text-dark: #181818;
+      --border-subtle: rgba(255,255,255,0.07);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: var(--dark-bg); color: var(--text-main); line-height: 1.65; }
+
+    .site-header { position: sticky; top: 0; z-index: 100; background: rgba(5,6,8,0.96); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-subtle); }
+    .header-inner { max-width: 1160px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .brand-logo { height: 38px; width: auto; border-radius: 6px; }
+    .brand-text { font-family: 'Playfair Display', serif; font-size: 1.05rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--text-main); }
+    .main-nav { display: flex; align-items: center; gap: 20px; }
+    .main-nav a { color: var(--text-muted); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.07em; text-transform: uppercase; transition: color 0.2s; }
+    .main-nav a:hover { color: #fff; }
+    .nav-cta { padding: 7px 20px; border-radius: 999px; border: 1px solid var(--gold); color: var(--gold) !important; transition: all 0.2s !important; white-space: nowrap; flex-shrink: 0; }
+    .nav-cta:hover { background: var(--gold) !important; color: #050608 !important; }
+
+    /* HERO
+       IMAGE: img/hero-transfers.jpg
+       Suggested: Cape Town International arrivals, luxury vehicle on airport road,
+       or mountain backdrop from the N2 highway approaching the city.
+       Size: 1920x1080 minimum.
+    */
+    .hero {
+      position: relative; min-height: 72vh; display: flex; align-items: center; overflow: hidden;
+      background-image: linear-gradient(160deg, rgba(5,6,8,0.88) 0%, rgba(5,6,8,0.55) 60%, rgba(5,6,8,0.92) 100%), url('img/hero-transfers.jpg');
+      background-size: cover; background-position: center;
+    }
+    .hero-glow { position: absolute; top: -80px; left: -100px; width: 460px; height: 360px; background: radial-gradient(ellipse, rgba(201,161,90,0.13) 0%, transparent 68%); pointer-events: none; }
+    .hero-content { position: relative; max-width: 1160px; margin: 0 auto; padding: 80px 24px; width: 100%; }
+    .hero-eyebrow { font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4.5vw, 3.4rem); font-weight: 400; line-height: 1.15; color: #fff; max-width: 580px; margin-bottom: 20px; }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-sub { font-size: 1.02rem; line-height: 1.78; color: #bbbbc0; max-width: 480px; margin-bottom: 34px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+    .btn-primary { padding: 12px 26px; border-radius: 999px; background: var(--gold); color: #050608; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s, transform 0.15s; display: inline-block; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-ghost { padding: 12px 26px; border-radius: 999px; background: transparent; color: #ddd; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; text-decoration: none; border: 1px solid rgba(255,255,255,0.3); cursor: pointer; transition: all 0.2s; display: inline-block; }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); }
+
+    .section { padding: 80px 24px; }
+    .section .inner { max-width: 1160px; margin: 0 auto; }
+    .section-light { background: var(--light-bg); color: var(--text-dark); }
+    .section-dark { background: var(--darker-bg); color: var(--text-main); }
+
+    .two-col { display: grid; grid-template-columns: 1.35fr 1fr; gap: 52px; align-items: start; }
+    .section h2 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 400; line-height: 1.25; margin-bottom: 18px; }
+    .section-light h2 { color: #111; }
+    .section-dark h2 { color: #f0f0ee; }
+    .section p { font-size: 0.97rem; line-height: 1.8; margin-bottom: 14px; }
+    .section-light p { color: #444; }
+    .section-dark p { color: #888; }
+
+    .info-card { border-radius: var(--radius); padding: 26px; }
+    .section-light .info-card { background: #fff; border: 0.5px solid #e0e0e8; }
+    .section-dark .info-card { background: rgba(255,255,255,0.03); border: 0.5px solid var(--border-subtle); }
+    .info-card-label { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+    .info-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 400; margin-bottom: 14px; }
+    .section-light .info-card h3 { color: #111; }
+    .section-dark .info-card h3 { color: #f0f0ee; }
+    .info-list { list-style: none; padding: 0; }
+    .info-list li { font-size: 0.92rem; line-height: 1.75; padding-left: 16px; position: relative; margin-bottom: 8px; }
+    .section-light .info-list li { color: #444; }
+    .section-dark .info-list li { color: #888; }
+    .info-list li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 0.8rem; }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
+    .feature-card { border-radius: var(--radius); padding: 24px; }
+    .section-dark .feature-card { background: rgba(255,255,255,0.03); border: 0.5px solid var(--border-subtle); }
+    .feature-card h3 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 400; color: #f0f0ee; margin-bottom: 10px; }
+    .feature-card p { font-size: 0.88rem; line-height: 1.72; color: #777; margin: 0; }
+
+    .section-label { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+
+    /* BOOKING FORM */
+    .booking-form { background: rgba(255,255,255,0.03); border: 0.5px solid var(--border-subtle); border-radius: var(--radius); padding: 28px; }
+    .section-light .booking-form { background: #fff; border-color: #e0e0e8; }
+    .form-row { margin-bottom: 16px; }
+    .form-row label { display: block; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+    .section-light .form-row label { color: #888; }
+    .form-row input, .form-row select, .form-row textarea { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid #2a2a35; background: #050608; color: #f5f5f5; font-family: 'DM Sans', sans-serif; font-size: 0.93rem; }
+    .section-light .form-row input, .section-light .form-row select, .section-light .form-row textarea { background: #fafafa; color: #111; border-color: #d8d8e0; }
+    .form-row input:focus, .form-row select:focus, .form-row textarea:focus { outline: none; border-color: var(--gold); }
+    .btn-full { width: 100%; }
+
+    /* ROUTES STRIP */
+    .routes-strip { background: var(--dark-bg); padding: 52px 24px; border-top: 1px solid var(--border-subtle); }
+    .routes-strip .inner { max-width: 1160px; margin: 0 auto; }
+    .routes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 28px; }
+    .route-item { background: rgba(255,255,255,0.03); border: 0.5px solid var(--border-subtle); border-radius: 10px; padding: 16px 20px; display: flex; align-items: center; gap: 14px; }
+    .route-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+    .route-text { font-size: 0.9rem; color: #aaa; }
+    .route-text strong { color: #f0f0f0; font-weight: 400; }
+
+    /* WHATSAPP */
+    .wa-banner { background: #0e1e12; border-top: 1px solid rgba(37,211,102,0.2); border-bottom: 1px solid rgba(37,211,102,0.2); padding: 36px 24px; }
+    .wa-banner .inner { max-width: 1160px; margin: 0 auto; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .wa-icon-circle { width: 52px; height: 52px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .wa-icon-circle svg { width: 26px; height: 26px; fill: #fff; }
+    .wa-text { flex: 1; }
+    .wa-text h3 { font-size: 1rem; font-weight: 500; color: #f0f0f0; margin-bottom: 4px; }
+    .wa-text p { font-size: 0.88rem; color: #6a8a72; }
+    .wa-btn { padding: 11px 24px; border-radius: 999px; background: #25D366; color: #0a1f0e; font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; text-decoration: none; border: none; flex-shrink: 0; transition: background 0.2s; display: inline-block; }
+    .wa-btn:hover { background: #1db954; }
+
+    .wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 999; width: 56px; height: 56px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 24px rgba(0,0,0,0.4); text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+    .wa-float:hover { transform: scale(1.08); box-shadow: 0 10px 32px rgba(37,211,102,0.35); }
+    .wa-float svg { width: 28px; height: 28px; fill: #fff; }
+    .wa-float-tooltip { position: absolute; right: 66px; top: 50%; transform: translateY(-50%); background: #111; color: #f0f0f0; font-size: 0.78rem; white-space: nowrap; padding: 7px 12px; border-radius: 8px; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+    .wa-float:hover .wa-float-tooltip { opacity: 1; }
+
+    .site-footer { background: #020204; padding: 52px 24px 24px; border-top: 1px solid rgba(255,255,255,0.04); }
+    .footer-top { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 36px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .footer-brand p { font-size: 0.88rem; color: var(--text-muted); max-width: 280px; margin-top: 12px; line-height: 1.7; }
+    .footer-logo { height: 36px; width: auto; border-radius: 6px; }
+    .footer-col h4 { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: #555; margin-bottom: 14px; }
+    .footer-col a { display: block; font-size: 0.88rem; color: var(--text-muted); text-decoration: none; margin-bottom: 8px; transition: color 0.2s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-contact { font-size: 0.88rem; color: var(--text-muted); line-height: 1.9; }
+    .footer-contact a { color: var(--gold); text-decoration: none; }
+    .footer-contact a:hover { text-decoration: underline; }
+    .footer-bottom { max-width: 1160px; margin: 0 auto; padding-top: 20px; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: #444; }
+    .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+    @media (max-width: 900px) {
+      .two-col, .grid-3, .routes-grid, .footer-top { grid-template-columns: 1fr; gap: 28px; }
+    }
+    @media (max-width: 600px) {
+      .main-nav { display: none; }
+      .hero h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<a class="wa-float" href="https://wa.me/27722726623?text=Hi%2C%20I%27d%20like%20to%20book%20an%20airport%20transfer%20with%20SSJ%20Exclusive" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="wa-float-tooltip">Chat on WhatsApp</span>
+</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <img src="img/logo.png" class="brand-logo" alt="SSJ Exclusive" />
+      <span class="brand-text">SSJ Exclusive</span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="airport-transfers.html">Transfers</a>
+      <a href="private-tours.html">Private Tours</a>
+      <a href="wine-tours.html">Winelands</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="nav-cta">Book Now</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Cape Town International · Private transfers</p>
+    <h1>We'll be there<br><em>when you land.</em></h1>
+    <p class="hero-sub">
+      Your host tracks your flight, meets you at arrivals, and handles the bags.
+      All you do is walk out and relax — Cape Town can wait thirty more seconds.
+    </p>
+    <div class="hero-actions">
+      <a href="https://wa.me/27722726623?text=Hi%2C%20I%27d%20like%20to%20book%20an%20airport%20transfer%20with%20SSJ%20Exclusive" target="_blank" rel="noopener" class="btn-primary">Book a transfer on WhatsApp</a>
+      <a href="#book" class="btn-ghost">Send us your details</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="inner">
+    <div class="two-col">
+      <div>
+        <p class="section-label">Private airport transfers</p>
+        <h2>Stress-free from the moment you land</h2>
+        <p>
+          Long flights are exhausting enough. The last thing you need is to navigate an unfamiliar airport,
+          queue for a cab, and argue with an app about your address. SSJ Exclusive handles all of that
+          before you've even collected your luggage.
+        </p>
+        <p>
+          Your host will be waiting in arrivals — name board in hand — ready to take your bags and
+          walk you to a clean, comfortable vehicle. From there, it's a smooth ride straight to your
+          hotel, villa, or wherever you're calling home for the trip.
+        </p>
+        <p>
+          Available for solo travellers, couples, families, and corporate guests.
+          Return transfers can be booked at the same time — one less thing to think about.
+        </p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">What's included</div>
+        <ul class="info-list">
+          <li>Meet &amp; greet at arrivals</li>
+          <li>Flight tracking &amp; delay monitoring</li>
+          <li>Clean, comfortable private vehicle</li>
+          <li>Assistance with all luggage</li>
+          <li>Bottled water on request</li>
+          <li>Local tips &amp; recommendations en route</li>
+          <li>Return transfer booking available</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="inner">
+    <p class="section-label">Who we serve</p>
+    <h2>Every guest, every occasion</h2>
+    <div class="grid-3" style="margin-top:28px;">
+      <div class="feature-card">
+        <h3>Solo &amp; Leisure Travellers</h3>
+        <p>Arriving for a holiday? Start it properly. No shared shuttles, no waiting. Just you, your host, and an easy ride into one of the world's most beautiful cities.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Families &amp; Groups</h3>
+        <p>Luggage, kids, and the general chaos of group travel — we've seen it all. Comfortable vehicles, flexible group sizes, and a host who doesn't flinch at an overpacked bag.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Corporate &amp; Business</h3>
+        <p>Punctual, discreet, and professional. Whether you need airport-to-boardroom speed or a quiet ride to decompress after a long flight, we deliver both.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="routes-strip">
+  <div class="inner">
+    <p class="section-label">Popular routes</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:400;color:#f0f0ee;margin-bottom:6px;">From Cape Town International to —</h2>
+    <p style="color:#666;font-size:0.9rem;">All routes are private and door-to-door. Not on the list? Just ask.</p>
+    <div class="routes-grid">
+      <div class="route-item"><span class="route-dot"></span><span class="route-text"><strong>City Centre</strong> — Hotels, CBD, De Waterkant</span></div>
+      <div class="route-item"><span class="route-dot"></span><span class="route-text"><strong>Camps Bay</strong> — Atlantic Seaboard, Clifton</span></div>
+      <div class="route-item"><span class="route-dot"></span><span class="route-text"><strong>Stellenbosch</strong> — Winelands accommodation</span></div>
+      <div class="route-item"><span class="route-dot"></span><span class="route-text"><strong>Constantia</strong> — Southern Suburbs, Hout Bay</span></div>
+      <div class="route-item"><span class="route-dot"></span><span class="route-text"><strong>Bloubergstrand</strong> — West Coast, Melkbosstrand</span></div>
+      <div class="route-item"><span class="route-dot"></span><span class="route-text"><strong>Franschhoek</strong> — Wine estates, boutique hotels</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="section section-light" id="book">
+  <div class="inner">
+    <div class="two-col">
+      <div>
+        <p class="section-label">Book your transfer</p>
+        <h2>Send us your flight details</h2>
+        <p>
+          Fill in the form with your flight number, arrival date, and destination and we'll
+          confirm availability and pricing within a few hours. Prefer to chat first?
+          Message us directly on WhatsApp.
+        </p>
+        <p style="margin-top:20px;">
+          <strong>Email:</strong> <a href="mailto:info@ssjexclusive.com" style="color:var(--gold);">info@ssjexclusive.com</a><br>
+          <strong>WhatsApp:</strong> <a href="https://wa.me/27722726623" target="_blank" style="color:var(--gold);">+27 72 272 6623</a><br>
+          <strong>Hours:</strong> Mon–Sun, 06:00–22:00
+        </p>
+      </div>
+      <form class="booking-form" onsubmit="return false;">
+        <div class="form-row">
+          <label>Full name</label>
+          <input type="text" placeholder="Your name" />
+        </div>
+        <div class="form-row">
+          <label>Email address</label>
+          <input type="email" placeholder="you@example.com" />
+        </div>
+        <div class="form-row">
+          <label>Flight number</label>
+          <input type="text" placeholder="e.g. BA 059" />
+        </div>
+        <div class="form-row">
+          <label>Arrival date</label>
+          <input type="date" />
+        </div>
+        <div class="form-row">
+          <label>Drop-off address</label>
+          <textarea rows="3" placeholder="Hotel name, villa address, Airbnb — wherever you're headed"></textarea>
+        </div>
+        <div class="form-row">
+          <label>Anything else?</label>
+          <textarea rows="2" placeholder="Group size, extra luggage, infant seat needed, etc."></textarea>
+        </div>
+        <a href="https://wa.me/27722726623?text=Hi%2C%20I%27d%20like%20to%20book%20an%20airport%20transfer%20with%20SSJ%20Exclusive" target="_blank" rel="noopener" class="btn-primary btn-full" style="text-align:center;">Book via WhatsApp</a>
+        <p style="font-size:0.78rem;color:#888;text-align:center;margin-top:10px;">Or email your details to <a href="mailto:info@ssjexclusive.com" style="color:var(--gold);">info@ssjexclusive.com</a></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="wa-banner">
+  <div class="inner">
+    <div class="wa-icon-circle">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </div>
+    <div class="wa-text">
+      <h3>Prefer to sort it over WhatsApp?</h3>
+      <p>Send your flight details directly — most bookings are confirmed within the hour.</p>
+    </div>
+    <a href="https://wa.me/27722726623?text=Hi%2C%20I%27d%20like%20to%20book%20an%20airport%20transfer%20with%20SSJ%20Exclusive" target="_blank" rel="noopener" class="wa-btn">Message us now</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="img/logo.png" class="footer-logo" alt="SSJ Exclusive" />
+      <p>Luxury transfers and private tours across Cape Town and the Western Cape. Professional, personal, and proudly local.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="airport-transfers.html">Airport Transfers</a>
+      <a href="private-tours.html">Private Tours</a>
+      <a href="wine-tours.html">Winelands Tours</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Get in touch</h4>
+      <div class="footer-contact">
+        <a href="mailto:info@ssjexclusive.com">info@ssjexclusive.com</a><br>
+        <a href="https://wa.me/27722726623" target="_blank">+27 72 272 6623</a><br><br>
+        Mon–Sun: 06:00–22:00<br>
+        Cape Town &amp; Western Cape
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© <span id="year"></span> SSJ Exclusive Transfers &amp; Tours</span>
+    <span>Powered by <a href="https://sysvyn.com" target="_blank">sysvyn.com</a></span>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
