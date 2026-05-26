@@ -2,216 +2,332 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Wine Tours | SSJ Exclusive Transfers & Tours</title>
+  <title>Winelands Tours | SSJ Exclusive</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Essential SEO -->
-<meta name="description" content="Luxury airport transfers and private tours in Cape Town with SSJ Exclusive. Professional, reliable, and personal service across the Western Cape." />
-<meta name="keywords" content="Cape Town airport transfers, private tours Cape Town, wine tours Cape Town, SSJ Exclusive, Cape Town transport, Western Cape tours" />
-<meta name="author" content="SSJ Exclusive Transfers & Tours" />
-
-<!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
-<meta property="og:title" content="SSJ Exclusive Transfers & Tours" />
-<meta property="og:description" content="Luxury airport transfers and private tours in Cape Town, South Africa." />
-<meta property="og:image" content="https://yourdomain.com/img/capetown-hero.jpg" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://yourdomain.com/" />
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="SSJ Exclusive Transfers & Tours" />
-<meta name="twitter:description" content="Luxury airport transfers and private tours in Cape Town." />
-<meta name="twitter:image" content="https://yourdomain.com/img/capetown-hero.jpg" />
-
-<!-- Mobile & Browser -->
-<meta name="theme-color" content="#050608" />
-
-  <meta name="description" content="Luxury wine tours in Stellenbosch, Franschhoek, and Constantia with SSJ Exclusive. Private, curated wine experiences with a personal driver." />
-
+  <meta name="description" content="Private winelands day trips from Cape Town. Stellenbosch, Franschhoek, and Constantia — you taste, we drive. Curated itineraries with your personal SSJ host." />
+  <meta name="keywords" content="Stellenbosch wine tour, Franschhoek wine tour, Constantia wine tour, Cape Town winelands, private wine tour SSJ Exclusive" />
+  <meta name="author" content="SSJ Exclusive Transfers & Tours" />
+  <meta property="og:title" content="Winelands Tours | SSJ Exclusive" />
+  <meta property="og:image" content="https://ssjexclusive.com/img/hero-wine.jpg" />
+  <meta name="theme-color" content="#050608" />
   <link rel="icon" type="image/png" href="img/favicon.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-</head>
+  <style>
+    :root{--gold:#c9a15a;--gold-light:#e0c080;--dark-bg:#050608;--darker-bg:#020305;--light-bg:#f7f6f3;--text-main:#f2f2f0;--text-muted:#888890;--text-dark:#181818;--border-subtle:rgba(255,255,255,0.07);--radius:12px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'DM Sans',system-ui,sans-serif;background:var(--dark-bg);color:var(--text-main);line-height:1.65;}
+    .site-header{position:sticky;top:0;z-index:100;background:rgba(5,6,8,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-subtle);}
+    .header-inner{max-width:1160px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .brand-logo{height:38px;width:auto;border-radius:6px;}
+    .brand-text{font-family:'Playfair Display',serif;font-size:1.05rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-main);}
+    .main-nav{display:flex;align-items:center;gap:20px;}
+    .main-nav a{color:var(--text-muted);text-decoration:none;font-size:0.82rem;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;}
+    .main-nav a:hover{color:#fff;}
+    .nav-cta{padding:7px 18px;border-radius:999px;border:1px solid var(--gold);color:var(--gold)!important;transition:all 0.2s!important;}
+    .nav-cta:hover{background:var(--gold)!important;color:#050608!important;}
 
+    /* HERO — img/hero-wine.jpg
+       Suggested: Franschhoek or Stellenbosch vineyard aerial, late afternoon golden light.
+       Size: 1920x1080 minimum. */
+    .hero{position:relative;min-height:75vh;display:flex;align-items:center;overflow:hidden;background-image:linear-gradient(160deg,rgba(5,6,8,0.85) 0%,rgba(5,6,8,0.45) 55%,rgba(5,6,8,0.90) 100%),url('img/hero-wine.jpg');background-size:cover;background-position:center 60%;}
+    .hero-glow{position:absolute;top:-80px;left:-100px;width:460px;height:360px;background:radial-gradient(ellipse,rgba(201,161,90,0.15) 0%,transparent 68%);pointer-events:none;}
+    .hero-content{position:relative;max-width:1160px;margin:0 auto;padding:80px 24px;width:100%;}
+    .hero-eyebrow{font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4.5vw,3.4rem);font-weight:400;line-height:1.15;color:#fff;max-width:600px;margin-bottom:20px;}
+    .hero h1 em{font-style:italic;color:var(--gold-light);}
+    .hero-sub{font-size:1.02rem;line-height:1.78;color:#bbbbc0;max-width:500px;margin-bottom:34px;}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;}
+    .btn-primary{padding:12px 26px;border-radius:999px;background:var(--gold);color:#050608;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background 0.2s,transform 0.15s;display:inline-block;}
+    .btn-primary:hover{background:var(--gold-light);transform:translateY(-1px);}
+    .btn-ghost{padding:12px 26px;border-radius:999px;background:transparent;color:#ddd;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.3);cursor:pointer;transition:all 0.2s;display:inline-block;}
+    .btn-ghost:hover{border-color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.05);}
+
+    .section{padding:80px 24px;}
+    .section .inner{max-width:1160px;margin:0 auto;}
+    .section-light{background:var(--light-bg);color:var(--text-dark);}
+    .section-dark{background:var(--darker-bg);color:var(--text-main);}
+    .two-col{display:grid;grid-template-columns:1.35fr 1fr;gap:52px;align-items:start;}
+    .section h2{font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;line-height:1.25;margin-bottom:18px;}
+    .section-light h2{color:#111;}
+    .section-dark h2{color:#f0f0ee;}
+    .section p{font-size:0.97rem;line-height:1.8;margin-bottom:14px;}
+    .section-light p{color:#444;}
+    .section-dark p{color:#888;}
+    .section-label{font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+
+    .info-card{border-radius:var(--radius);padding:26px;}
+    .section-light .info-card{background:#fff;border:0.5px solid #e0e0e8;}
+    .section-dark .info-card{background:rgba(255,255,255,0.03);border:0.5px solid var(--border-subtle);}
+    .info-card-label{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+    .info-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:400;margin-bottom:14px;}
+    .section-light .info-card h3{color:#111;}
+    .section-dark .info-card h3{color:#f0f0ee;}
+    .info-list{list-style:none;padding:0;}
+    .info-list li{font-size:0.92rem;line-height:1.75;padding-left:16px;position:relative;margin-bottom:8px;}
+    .section-light .info-list li{color:#444;}
+    .section-dark .info-list li{color:#888;}
+    .info-list li::before{content:'—';position:absolute;left:0;color:var(--gold);font-size:0.8rem;}
+
+    /* WINE REGION CARDS
+       Each has its own scenic background photo.
+         wine-stellenbosch.jpg  → Stellenbosch vineyards / estate entrance
+         wine-franschhoek.jpg   → Franschhoek valley, mountain backdrop
+         wine-constantia.jpg    → Constantia Nek or Groot Constantia estate
+       Size: 800x520px minimum, landscape.
+    */
+    .regions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:10px;}
+    .region-card{border-radius:var(--radius);overflow:hidden;min-height:320px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:26px;background-size:cover;background-position:center;}
+    .region-card::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.88) 0%,rgba(0,0,0,0.4) 55%,rgba(0,0,0,0.08) 100%);border-radius:var(--radius);}
+    .region-stellenbosch{background-image:url('img/wine-stellenbosch.jpg');background-color:#1a1208;}
+    .region-franschhoek{background-image:url('img/wine-franschhoek.jpg');background-color:#141a10;}
+    .region-constantia{background-image:url('img/wine-constantia.jpg');background-color:#10141a;}
+    .region-content{position:relative;z-index:1;}
+    .region-tag{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:7px;}
+    .region-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:400;font-style:italic;color:#ffffff;margin-bottom:10px;line-height:1.3;}
+    .region-card p{font-size:0.85rem;line-height:1.65;color:rgba(255,255,255,0.82);}
+
+    /* EXPERIENCE STRIP */
+    .exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px;}
+    .exp-item{background:rgba(255,255,255,0.03);border:0.5px solid var(--border-subtle);border-radius:10px;padding:18px 20px;}
+    .exp-item h4{font-family:'Playfair Display',serif;font-size:0.98rem;font-weight:400;color:#e0e0dc;margin-bottom:7px;}
+    .exp-item p{font-size:0.83rem;color:#666;line-height:1.65;margin:0;}
+
+    /* BOOKING FORM */
+    .booking-form{background:rgba(255,255,255,0.03);border:0.5px solid var(--border-subtle);border-radius:var(--radius);padding:28px;}
+    .section-light .booking-form{background:#fff;border-color:#e0e0e8;}
+    .form-row{margin-bottom:16px;}
+    .form-row label{display:block;font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;}
+    .section-light .form-row label{color:#888;}
+    .form-row input,.form-row select,.form-row textarea{width:100%;padding:10px 12px;border-radius:8px;border:1px solid #2a2a35;background:#050608;color:#f5f5f5;font-family:'DM Sans',sans-serif;font-size:0.93rem;}
+    .section-light .form-row input,.section-light .form-row select,.section-light .form-row textarea{background:#fafafa;color:#111;border-color:#d8d8e0;}
+    .form-row input:focus,.form-row select:focus,.form-row textarea:focus{outline:none;border-color:var(--gold);}
+    .btn-full{width:100%;text-align:center;}
+
+    .wa-banner{background:#0e1e12;border-top:1px solid rgba(37,211,102,0.2);border-bottom:1px solid rgba(37,211,102,0.2);padding:36px 24px;}
+    .wa-banner .inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+    .wa-icon-circle{width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .wa-icon-circle svg{width:26px;height:26px;fill:#fff;}
+    .wa-text{flex:1;}
+    .wa-text h3{font-size:1rem;font-weight:500;color:#f0f0f0;margin-bottom:4px;}
+    .wa-text p{font-size:0.88rem;color:#6a8a72;}
+    .wa-btn{padding:11px 24px;border-radius:999px;background:#25D366;color:#0a1f0e;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;border:none;flex-shrink:0;transition:background 0.2s;display:inline-block;}
+    .wa-btn:hover{background:#1db954;}
+    .wa-float{position:fixed;bottom:28px;right:28px;z-index:999;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(0,0,0,0.4);text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;}
+    .wa-float:hover{transform:scale(1.08);box-shadow:0 10px 32px rgba(37,211,102,0.35);}
+    .wa-float svg{width:28px;height:28px;fill:#fff;}
+    .wa-float-tooltip{position:absolute;right:66px;top:50%;transform:translateY(-50%);background:#111;color:#f0f0f0;font-size:0.78rem;white-space:nowrap;padding:7px 12px;border-radius:8px;opacity:0;pointer-events:none;transition:opacity 0.2s;}
+    .wa-float:hover .wa-float-tooltip{opacity:1;}
+
+    .site-footer{background:#020204;padding:52px 24px 24px;border-top:1px solid rgba(255,255,255,0.04);}
+    .footer-top{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:36px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.05);}
+    .footer-brand p{font-size:0.88rem;color:var(--text-muted);max-width:280px;margin-top:12px;line-height:1.7;}
+    .footer-logo{height:36px;width:auto;border-radius:6px;}
+    .footer-col h4{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:#555;margin-bottom:14px;}
+    .footer-col a{display:block;font-size:0.88rem;color:var(--text-muted);text-decoration:none;margin-bottom:8px;transition:color 0.2s;}
+    .footer-col a:hover{color:#fff;}
+    .footer-contact{font-size:0.88rem;color:var(--text-muted);line-height:1.9;}
+    .footer-contact a{color:var(--gold);text-decoration:none;}
+    .footer-contact a:hover{text-decoration:underline;}
+    .footer-bottom{max-width:1160px;margin:0 auto;padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;color:#444;}
+    .footer-bottom a{color:var(--gold);text-decoration:none;}
+
+    @media(max-width:900px){.two-col,.regions-grid,.exp-grid,.footer-top{grid-template-columns:1fr;gap:28px;}}
+    @media(max-width:600px){.main-nav{display:none;}.hero h1{font-size:2rem;}}
+  </style>
+</head>
 <body>
 
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="index.html" class="brand">
-      <img src="img/logo.png" class="brand-logo" alt="SSJ Exclusive Logo" />
-      <span class="brand-text">SSJ Exclusive</span>
-    </a>
+<a class="wa-float" href="https://wa.me/27722726623?text=Hi%2C%20I%27d%20like%20to%20book%20a%20winelands%20tour%20with%20SSJ%20Exclusive" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="wa-float-tooltip">Chat on WhatsApp</span>
+</a>
 
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand"><img src="img/logo.png" class="brand-logo" alt="SSJ Exclusive" /><span class="brand-text">SSJ Exclusive</span></a>
     <nav class="main-nav">
-      <a href="index.html">Home</a>
-      <a href="airport-transfers.html">Airport Transfers</a>
-      <a href="private-tours.html">Private Tours</a>
-      <a href="wine-tours.html">Wine Tours</a>
-      <a href="about.html">About</a>
-      <a href="contact.html" class="nav-cta">Book Now</a>
+      <a href="index.html">Home</a><a href="airport-transfers.html">Transfers</a><a href="private-tours.html">Private Tours</a><a href="wine-tours.html">Winelands</a><a href="about.html">About</a><a href="contact.html" class="nav-cta">Book Now</a>
     </nav>
   </div>
 </header>
 
-<section class="hero" style="background-image:
-  linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(5,6,8,0.95)),
-  url('img/wine-tour.jpg');">
-  <div class="hero-overlay"></div>
-  <div class="container hero-content">
-    <h1>Luxury Wine Tours</h1>
-    <p>Discover the world‑class wine regions of Stellenbosch, Franschhoek, and Constantia with a private driver.</p>
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Stellenbosch · Franschhoek · Constantia</p>
+    <h1>You taste.<br><em>We drive.</em></h1>
+    <p class="hero-sub">
+      The Western Cape has some of the finest wine in the world — and it's all within an hour of your hotel.
+      Let your host take care of the route, the timing, and getting you home safely.
+      You just focus on the glass.
+    </p>
     <div class="hero-actions">
-      <a href="contact.html" class="btn btn-primary">Book a Wine Tour</a>
+      <a href="#book" class="btn-primary">Plan my winelands day</a>
+      <a href="private-tours.html" class="btn-ghost">Combine with a city tour</a>
     </div>
   </div>
 </section>
 
 <section class="section section-light">
-  <div class="container two-column">
-    <div>
-      <h2>Explore Cape Town’s Finest Wine Regions</h2>
-      <p>Experience the Western Cape’s award‑winning wine estates with a private, curated tour designed around your taste and pace. Whether you prefer bold reds, crisp whites, MCC, or chocolate pairings, your itinerary can be fully customized.</p>
-      <p>Perfect for couples, families, wine lovers, and groups looking for a relaxed, scenic day out.</p>
-    </div>
-
-    <div class="card">
-      <h3>What’s Included</h3>
-      <ul>
-        <li>Private vehicle & personal driver</li>
-        <li>Custom wine route planning</li>
-        <li>Hotel pickup & drop‑off</li>
-        <li>Photo stops & scenic viewpoints</li>
-        <li>Optional lunch reservations</li>
-        <li>Flexible timing throughout the day</li>
-      </ul>
+  <div class="inner">
+    <div class="two-col">
+      <div>
+        <p class="section-label">Private winelands tours</p>
+        <h2>The Cape Winelands deserve<br>a proper day out.</h2>
+        <p>
+          There's a reason visitors to the Western Cape often say the winelands were the highlight
+          of their trip — not just the wine, but the mountain scenery, the historic estates,
+          the long lunches that somehow become the afternoon.
+        </p>
+        <p>
+          With SSJ Exclusive, you get a private host and vehicle for the day. No shared minibuses.
+          No rushed stops. No one else's itinerary. Just you, your group, and three of South Africa's
+          most celebrated wine regions within comfortable reach.
+        </p>
+        <p>
+          You choose your preferred region — or let us suggest one based on what you're into — and we
+          handle everything from there. Pickup at your accommodation, first estate by mid-morning,
+          and safely back before the evening gets away from you.
+        </p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">What's included</div>
+        <ul class="info-list">
+          <li>Private vehicle &amp; dedicated host for the day</li>
+          <li>Custom wine route planned around your tastes</li>
+          <li>Hotel or accommodation pickup &amp; drop-off</li>
+          <li>Scenic photo stops along the way</li>
+          <li>Optional lunch reservation at a hand-picked estate</li>
+          <li>Flexible timing — no clock-watching</li>
+          <li>Safe, sober driving the whole day</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section section-dark">
-  <div class="container">
-    <h2 class="center">Popular Wine Routes</h2>
-
-    <div class="grid-3">
-      <div class="card">
-        <h3>Stellenbosch</h3>
-        <p>Historic estates, oak‑lined streets, and some of South Africa’s most iconic red wines.</p>
+  <div class="inner">
+    <p class="section-label">Where we go</p>
+    <h2>Three world-class regions.<br>One unforgettable day.</h2>
+    <div class="regions-grid">
+      <div class="region-card region-stellenbosch">
+        <div class="region-content">
+          <p class="region-tag">Stellenbosch</p>
+          <h3>South Africa's most celebrated wine capital</h3>
+          <p>Oak-lined streets, historic Cape Dutch estates, and bold reds that punch well above their weight internationally. A full day here barely scratches the surface — but what a scratch it is.</p>
+        </div>
       </div>
-
-      <div class="card">
-        <h3>Franschhoek</h3>
-        <p>French‑inspired elegance, mountain views, and world‑class fine dining experiences.</p>
+      <div class="region-card region-franschhoek">
+        <div class="region-content">
+          <p class="region-tag">Franschhoek</p>
+          <h3>French elegance, mountain drama, extraordinary food</h3>
+          <p>Tucked into a mountain valley, Franschhoek offers world-class MCC, Michelin-calibre restaurants, and scenery that stops you mid-sentence. Plan a long lunch — you'll want one.</p>
+        </div>
       </div>
-
-      <div class="card">
-        <h3>Constantia</h3>
-        <p>Close to Cape Town — perfect for half‑day tours with rich history and award‑winning whites.</p>
+      <div class="region-card region-constantia">
+        <div class="region-content">
+          <p class="region-tag">Constantia</p>
+          <h3>Cape Town's closest wine valley — and oldest</h3>
+          <p>Just 20 minutes from the city, Constantia's estates produce some of South Africa's finest whites. Perfect for a half-day add-on or a relaxed full morning before heading back.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <section class="section section-light">
-  <div class="container two-column">
-    <div>
-      <h2>Tailored Wine Experiences</h2>
-      <p>Your wine tour can be fully personalized. Choose your preferred style:</p>
-
-      <ul class="feature-list">
-        <li>Premium wine tasting routes</li>
-        <li>Chocolate & wine pairings</li>
-        <li>Cellar tours & vineyard walks</li>
-        <li>Picnic experiences</li>
-        <li>Fine‑dining wine pairings</li>
-        <li>Photography‑focused scenic routes</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>Optional Add‑Ons</h3>
-      <ul>
-        <li>Champagne/MCC tastings</li>
-        <li>Private wine expert or sommelier</li>
-        <li>Helicopter transfers</li>
-        <li>Cheese & charcuterie boards</li>
-        <li>Winelands spa packages</li>
-      </ul>
+  <div class="inner">
+    <div class="two-col">
+      <div>
+        <p class="section-label">Tailor your experience</p>
+        <h2>Tell us what you love.<br>We'll build around it.</h2>
+        <p>
+          Not all wine days are the same. Some guests want to hit three estates and compare vintages.
+          Others want one great estate, a long lunch, and a scenic drive home. We've done both —
+          and everything in between.
+        </p>
+        <ul class="info-list" style="margin-top:16px;">
+          <li>Premium tasting flights at top-rated estates</li>
+          <li>Chocolate, cheese &amp; charcuterie pairings</li>
+          <li>Cellar tours &amp; barrel room access</li>
+          <li>Vineyard walks &amp; harvest experiences (seasonal)</li>
+          <li>Fine-dining wine pairing lunches</li>
+          <li>Photography-focused scenic routes</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">Optional add-ons</div>
+        <ul class="info-list">
+          <li>MCC / Cap Classique champagne tastings</li>
+          <li>Private sommelier for the day</li>
+          <li>Winelands spa afternoon</li>
+          <li>Helicopter transfer to Franschhoek</li>
+          <li>Craft gin distillery visit (Stellenbosch)</li>
+          <li>Multi-day winelands itinerary</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section section-dark">
-  <div class="container two-column">
-    <div>
-      <h2>Book Your Wine Tour</h2>
-      <p>Tell us your preferred wine region and tasting style, and we’ll create a custom itinerary for your perfect day in the Winelands.</p>
-      <p><strong>Email:</strong> info@ssjexclusive.com<br>
-         <strong>Bookings:</strong> bookings@ssjexclusive.com</p>
-    </div>
-
-    <div>
-      <form class="booking-form">
+<section class="section section-dark" id="book">
+  <div class="inner">
+    <div class="two-col">
+      <div>
+        <p class="section-label">Book your winelands day</p>
+        <h2>Let's plan something worth raising a glass to</h2>
+        <p>
+          Tell us your preferred region, the kind of wine you enjoy, and whether you'd like
+          a lunch stop built in. We'll come back with a suggested itinerary and confirm everything
+          before the day.
+        </p>
+        <p style="margin-top:20px;">
+          <strong>Email:</strong> <a href="mailto:info@ssjexclusive.com" style="color:var(--gold);">info@ssjexclusive.com</a><br>
+          <strong>WhatsApp:</strong> <a href="https://wa.me/27722726623" target="_blank" style="color:var(--gold);">+27 72 272 6623</a><br>
+          <strong>Hours:</strong> Mon–Sun, 06:00–22:00
+        </p>
+      </div>
+      <form class="booking-form" onsubmit="return false;">
+        <div class="form-row"><label>Full name</label><input type="text" placeholder="Your name" /></div>
+        <div class="form-row"><label>Email address</label><input type="email" placeholder="you@example.com" /></div>
+        <div class="form-row"><label>Preferred date</label><input type="date" /></div>
         <div class="form-row">
-          <label for="name">Name</label>
-          <input id="name" type="text" placeholder="Your full name" />
+          <label>Preferred region</label>
+          <select>
+            <option>Stellenbosch</option>
+            <option>Franschhoek</option>
+            <option>Constantia</option>
+            <option>Not sure — suggest something</option>
+            <option>Multi-region day</option>
+          </select>
         </div>
-
-        <div class="form-row">
-          <label for="email">Email</label>
-          <input id="email" type="email" placeholder="you@example.com" />
-        </div>
-
-        <div class="form-row">
-          <label for="date">Preferred Date</label>
-          <input id="date" type="date" />
-        </div>
-
-        <div class="form-row">
-          <label for="message">Wine Preferences</label>
-          <textarea id="message" rows="4" placeholder="Tell us what wines or regions you enjoy..."></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary full-width">Send Booking Request</button>
+        <div class="form-row"><label>Group size</label><input type="text" placeholder="e.g. 2 adults" /></div>
+        <div class="form-row"><label>Wine preferences &amp; any special requests</label><textarea rows="4" placeholder="Reds, whites, MCC, food pairings, dietary needs — anything helps us plan better"></textarea></div>
+        <a href="mailto:info@ssjexclusive.com" class="btn-primary btn-full">Send winelands enquiry</a>
       </form>
     </div>
   </div>
 </section>
 
+<div class="wa-banner">
+  <div class="inner">
+    <div class="wa-icon-circle"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+    <div class="wa-text"><h3>Planning on the fly? Just WhatsApp us.</h3><p>Send your dates and we'll put together a winelands route that fits your style.</p></div>
+    <a href="https://wa.me/27722726623?text=Hi%2C%20I%27d%20like%20to%20plan%20a%20winelands%20day%20trip%20with%20SSJ%20Exclusive" target="_blank" rel="noopener" class="wa-btn">Message us now</a>
+  </div>
+</div>
+
 <footer class="site-footer">
-  <div class="container footer-top">
-    <div class="footer-brand">
-      <img src="img/logo.png" class="footer-logo" alt="SSJ Exclusive Logo" />
-      <p>Luxury transfers & private tours in Cape Town, South Africa.</p>
-    </div>
-
-    <div class="footer-links">
-      <h4>Explore</h4>
-      <a href="airport-transfers.html">Airport Transfers</a>
-      <a href="private-tours.html">Private Tours</a>
-      <a href="wine-tours.html">Wine Tours</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <div class="footer-links">
-      <h4>Info</h4>
-      <a href="why-choose-us.html">Why Choose Us</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="terms.html">Terms & Conditions</a>
-      <a href="privacy.html">Privacy Policy</a>
-    </div>
+  <div class="footer-top">
+    <div class="footer-brand"><img src="img/logo.png" class="footer-logo" alt="SSJ Exclusive" /><p>Luxury transfers and private tours across Cape Town and the Western Cape. Professional, personal, and proudly local.</p></div>
+    <div class="footer-col"><h4>Explore</h4><a href="airport-transfers.html">Airport Transfers</a><a href="private-tours.html">Private Tours</a><a href="wine-tours.html">Winelands Tours</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Get in touch</h4><div class="footer-contact"><a href="mailto:info@ssjexclusive.com">info@ssjexclusive.com</a><br><a href="https://wa.me/27722726623" target="_blank">+27 72 272 6623</a><br><br>Mon–Sun: 06:00–22:00<br>Cape Town &amp; Western Cape</div></div>
   </div>
-
-  <div class="container footer-bottom">
-    <span>© <span id="year"></span> SSJ Exclusive Transfers & Tours</span>
-    <span class="powered-by">Powered by <a href="https://sysvyn.com" target="_blank">sysvyn.com</a></span>
-  </div>
+  <div class="footer-bottom"><span>© <span id="year"></span> SSJ Exclusive Transfers &amp; Tours</span><span>Powered by <a href="https://sysvyn.com" target="_blank">sysvyn.com</a></span></div>
 </footer>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
-
