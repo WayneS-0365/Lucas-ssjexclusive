@@ -5,174 +5,885 @@
   <title>SSJ Exclusive Transfers & Tours | Cape Town</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Essential SEO -->
-<meta name="description" content="Luxury airport transfers and private tours in Cape Town with SSJ Exclusive. Professional, reliable, and personal service across the Western Cape." />
-<meta name="keywords" content="Cape Town airport transfers, private tours Cape Town, wine tours Cape Town, SSJ Exclusive, Cape Town transport, Western Cape tours" />
-<meta name="author" content="SSJ Exclusive Transfers & Tours" />
+  <!-- SEO -->
+  <meta name="description" content="Luxury airport transfers and private tours in Cape Town with SSJ Exclusive. Your personal host across the Western Cape — professional, reliable, and genuinely local." />
+  <meta name="keywords" content="Cape Town airport transfers, private tours Cape Town, wine tours Cape Town, SSJ Exclusive, Cape Town chauffeur, Western Cape tours, Chapman's Peak, Stellenbosch, Franschhoek" />
+  <meta name="author" content="SSJ Exclusive Transfers & Tours" />
 
-<!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
-<meta property="og:title" content="SSJ Exclusive Transfers & Tours" />
-<meta property="og:description" content="Luxury airport transfers and private tours in Cape Town, South Africa." />
-<meta property="og:image" content="https://yourdomain.com/img/capetown-hero.jpg" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://yourdomain.com/" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="SSJ Exclusive Transfers & Tours" />
+  <meta property="og:description" content="Luxury airport transfers and private tours in Cape Town, South Africa." />
+  <meta property="og:image" content="https://ssjexclusive.com/img/hero-home.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ssjexclusive.com/" />
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="SSJ Exclusive Transfers & Tours" />
-<meta name="twitter:description" content="Luxury airport transfers and private tours in Cape Town." />
-<meta name="twitter:image" content="https://yourdomain.com/img/capetown-hero.jpg" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SSJ Exclusive Transfers & Tours" />
+  <meta name="twitter:description" content="Luxury airport transfers and private tours in Cape Town." />
+  <meta name="twitter:image" content="https://ssjexclusive.com/img/hero-home.jpg" />
 
-<!-- Mobile & Browser -->
-<meta name="theme-color" content="#050608" />
-
-  <meta name="description" content="Luxury airport transfers and private tours in Cape Town, South Africa with a personal local touch." />
+  <!-- Browser -->
+  <meta name="theme-color" content="#050608" />
 
   <link rel="icon" type="image/png" href="img/favicon.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-</head>
 
+  <style>
+    /* ─── PAGE-LEVEL OVERRIDES & NEW COMPONENTS ─── */
+
+    :root {
+      --gold: #c9a15a;
+      --gold-light: #e0c080;
+      --dark-bg: #050608;
+      --darker-bg: #020305;
+      --light-bg: #f7f6f3;
+      --text-main: #f2f2f0;
+      --text-muted: #888890;
+      --text-dark: #181818;
+      --border-subtle: rgba(255,255,255,0.07);
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--dark-bg);
+      color: var(--text-main);
+      line-height: 1.65;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5,6,8,0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .header-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .brand-logo {
+      height: 38px;
+      width: auto;
+      border-radius: 6px;
+    }
+    .brand-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--text-main);
+    }
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .main-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .main-nav a:hover { color: #fff; }
+    .nav-cta {
+      padding: 7px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--gold);
+      color: var(--gold) !important;
+      transition: all 0.2s !important;
+    }
+    .nav-cta:hover {
+      background: var(--gold) !important;
+      color: #050608 !important;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+
+      /* 
+        IMAGE SETUP:
+        Replace "hero-home.jpg" with your actual hero photo.
+        Ideal: wide aerial shot of Cape Town or the waterfront.
+        Size recommended: 1920x1080px minimum.
+      */
+      background-image:
+        linear-gradient(160deg, rgba(5,6,8,0.82) 0%, rgba(5,6,8,0.55) 50%, rgba(5,6,8,0.88) 100%),
+        url('img/hero-home.jpg');
+      background-size: cover;
+      background-position: center 40%;
+    }
+    .hero-glow {
+      position: absolute;
+      top: -100px; left: -120px;
+      width: 520px; height: 420px;
+      background: radial-gradient(ellipse, rgba(201,161,90,0.15) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: #fff;
+      max-width: 620px;
+      margin-bottom: 22px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: #bbbbc0;
+      max-width: 500px;
+      margin-bottom: 36px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 56px;
+    }
+    .btn-primary {
+      padding: 12px 26px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #050608;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+    .btn-ghost {
+      padding: 12px 26px;
+      border-radius: 999px;
+      background: transparent;
+      color: #ddd;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.3);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.05);
+    }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+    .hero-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: #666;
+    }
+    .tag-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ── INTRO SECTION ── */
+    .section-intro {
+      background: var(--light-bg);
+      color: var(--text-dark);
+      padding: 80px 24px;
+    }
+    .section-intro .inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 52px;
+      align-items: start;
+    }
+    .section-intro h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 18px;
+      color: #111;
+    }
+    .section-intro p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #444;
+      margin-bottom: 14px;
+    }
+    .host-card {
+      background: #fff;
+      border: 0.5px solid #e0e0e8;
+      border-radius: var(--radius);
+      padding: 26px;
+    }
+    .host-card-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .host-card blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.08rem;
+      font-style: italic;
+      font-weight: 400;
+      color: #222;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      border: none;
+      padding: 0;
+    }
+    .host-card p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: #666;
+    }
+
+    /* ── SERVICES SECTION ── */
+    .section-services {
+      background: var(--darker-bg);
+      color: var(--text-main);
+      padding: 80px 24px;
+    }
+    .section-services .inner {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 36px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .svc-card {
+      background: rgba(255,255,255,0.03);
+      border: 0.5px solid var(--border-subtle);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: border-color 0.2s;
+    }
+    .svc-card:hover {
+      border-color: rgba(201,161,90,0.35);
+    }
+    .svc-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: #f0f0ee;
+      margin-bottom: 12px;
+    }
+    .svc-card p {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: #888;
+      margin-bottom: 20px;
+    }
+    .svc-link {
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .svc-link:hover { color: var(--gold-light); }
+
+    /* ── SCENIC SECTION ── */
+    .section-scenic {
+      background: var(--light-bg);
+      color: var(--text-dark);
+      padding: 80px 24px;
+    }
+    .section-scenic .inner {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .section-scenic h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: #111;
+      margin-bottom: 8px;
+    }
+    .section-scenic .sub {
+      font-size: 0.95rem;
+      color: #777;
+      margin-bottom: 36px;
+    }
+    .scenic-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    /*
+      SCENIC CARDS — each uses a background photo.
+      Image naming guide (place your photos in /img/):
+        scenic-chapmans-peak.jpg  → Chapman's Peak coastal road
+        scenic-franschhoek.jpg    → Franschhoek valley / vineyards
+        scenic-cape-point.jpg     → Cape Point / Cape of Good Hope
+      Recommended size: 800x500px minimum, landscape orientation.
+      The dark overlay ensures text is always readable.
+    */
+    .scenic-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      min-height: 260px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      background-size: cover;
+      background-position: center;
+    }
+    .scenic-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.1) 100%);
+      border-radius: var(--radius);
+    }
+    .scenic-card-1 {
+      background-image: url('img/scenic-chapmans-peak.jpg');
+      background-color: #1a2820; /* fallback colour while image loads */
+    }
+    .scenic-card-2 {
+      background-image: url('img/scenic-franschhoek.jpg');
+      background-color: #1e1e2e;
+    }
+    .scenic-card-3 {
+      background-image: url('img/scenic-cape-point.jpg');
+      background-color: #2a1e12;
+    }
+    .scenic-card-content {
+      position: relative;
+      z-index: 1;
+    }
+    .scenic-place {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      /* HIGH CONTRAST — always white regardless of bg */
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 7px;
+    }
+    .scenic-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      font-style: italic;
+      /* PURE WHITE — fully readable over dark overlay */
+      color: #ffffff;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .scenic-card p {
+      font-size: 0.85rem;
+      line-height: 1.65;
+      /* HIGH CONTRAST LIGHT — clearly legible */
+      color: rgba(255,255,255,0.82);
+    }
+
+    /* ── WHATSAPP BANNER ── */
+    .wa-banner {
+      background: #0e1e12;
+      border-top: 1px solid rgba(37,211,102,0.2);
+      border-bottom: 1px solid rgba(37,211,102,0.2);
+      padding: 36px 24px;
+    }
+    .wa-banner .inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .wa-icon-circle {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .wa-icon-circle svg {
+      width: 26px; height: 26px;
+      fill: #fff;
+    }
+    .wa-text { flex: 1; }
+    .wa-text h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #f0f0f0;
+      margin-bottom: 4px;
+    }
+    .wa-text p {
+      font-size: 0.88rem;
+      color: #6a8a72;
+    }
+    .wa-btn {
+      padding: 11px 24px;
+      border-radius: 999px;
+      background: #25D366;
+      color: #0a1f0e;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      flex-shrink: 0;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+    .wa-btn:hover { background: #1db954; }
+
+    /* ── FLOATING WHATSAPP BUTTON ── */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .wa-float:hover {
+      transform: scale(1.08);
+      box-shadow: 0 10px 32px rgba(37,211,102,0.35);
+    }
+    .wa-float svg {
+      width: 28px; height: 28px;
+      fill: #fff;
+    }
+    .wa-float-tooltip {
+      position: absolute;
+      right: 66px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #111;
+      color: #f0f0f0;
+      font-size: 0.78rem;
+      white-space: nowrap;
+      padding: 7px 12px;
+      border-radius: 8px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .wa-float:hover .wa-float-tooltip { opacity: 1; }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: #020204;
+      padding: 52px 24px 24px;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .footer-top {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .footer-brand p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      max-width: 280px;
+      margin-top: 12px;
+      line-height: 1.7;
+    }
+    .footer-logo {
+      height: 36px;
+      width: auto;
+      border-radius: 6px;
+    }
+    .footer-col h4 {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 14px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-bottom: 8px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: #fff; }
+    .footer-contact {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.9;
+    }
+    .footer-contact a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .footer-contact a:hover { text-decoration: underline; }
+    .footer-bottom {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: #444;
+    }
+    .footer-bottom a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .header-inner { padding: 0 16px; }
+      .main-nav { gap: 12px; }
+      .main-nav a { font-size: 0.75rem; }
+      .hero { min-height: 75vh; }
+      .section-intro .inner,
+      .services-grid,
+      .scenic-grid,
+      .footer-top { grid-template-columns: 1fr; }
+      .section-intro .inner,
+      .footer-top { gap: 32px; }
+      .wa-banner .inner { flex-wrap: wrap; }
+    }
+
+    @media (max-width: 600px) {
+      .main-nav { display: none; }
+      .hero h1 { font-size: 2.1rem; }
+      .hero-actions { flex-direction: column; }
+      .btn-primary, .btn-ghost { text-align: center; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
 <body>
 
+<!-- ─── FLOATING WHATSAPP ─── -->
+<a class="wa-float"
+   href="https://wa.me/27722726623?text=Hi%2C%20I%27d%20like%20to%20book%20a%20transfer%20or%20tour%20with%20SSJ%20Exclusive"
+   target="_blank"
+   rel="noopener"
+   aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  <span class="wa-float-tooltip">Chat on WhatsApp</span>
+</a>
+
+<!-- ─── HEADER ─── -->
 <header class="site-header">
-  <div class="container header-inner">
+  <div class="header-inner">
     <a href="index.html" class="brand">
-      <img src="img/logo.png" class="brand-logo" alt="SSJ Exclusive Logo" />
+      <img src="img/logo.png" class="brand-logo" alt="SSJ Exclusive" />
       <span class="brand-text">SSJ Exclusive</span>
     </a>
-
     <nav class="main-nav">
       <a href="index.html">Home</a>
-      <a href="airport-transfers.html">Airport Transfers</a>
+      <a href="airport-transfers.html">Transfers</a>
       <a href="private-tours.html">Private Tours</a>
-      <a href="wine-tours.html">Wine Tours</a>
+      <a href="wine-tours.html">Winelands</a>
       <a href="about.html">About</a>
       <a href="contact.html" class="nav-cta">Book Now</a>
     </nav>
   </div>
 </header>
 
+<!-- ─── HERO ─── -->
+<!--
+  HERO IMAGE: img/hero-home.jpg
+  Suggested: wide aerial or coastal shot of Cape Town, Table Mountain visible.
+  Good free sources: Unsplash search "Cape Town aerial" or "Table Mountain panorama"
+  Size: 1920×1080 minimum. Save optimised (JPEG 80%).
+-->
 <section class="hero">
-  <div class="hero-overlay"></div>
-  <div class="container hero-content">
-    <h1>Exclusive Airport Transfers & Private Cape Town Tours</h1>
-    <p>Luxury, comfort, and a personal local touch from the moment you land.</p>
-
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Cape Town · Western Cape · Proudly local</p>
+    <h1>Your city.<br><em>Experienced properly.</em></h1>
+    <p class="hero-sub">
+      Whether you're landing after a long-haul flight or chasing your first sunset over Chapman's Peak,
+      SSJ Exclusive makes sure you do it in comfort — with a local who actually knows the good stuff.
+    </p>
     <div class="hero-actions">
-      <a href="airport-transfers.html" class="btn btn-primary">Book Airport Transfer</a>
-      <a href="private-tours.html" class="btn btn-outline">Explore Private Tours</a>
+      <a href="airport-transfers.html" class="btn-primary">Book an airport transfer</a>
+      <a href="private-tours.html" class="btn-ghost">Explore private tours</a>
+    </div>
+    <div class="hero-tags">
+      <span class="hero-tag"><span class="tag-dot"></span>Cape Town International</span>
+      <span class="hero-tag"><span class="tag-dot"></span>Winelands day trips</span>
+      <span class="hero-tag"><span class="tag-dot"></span>Peninsula drives</span>
+      <span class="hero-tag"><span class="tag-dot"></span>Private &amp; fully flexible</span>
     </div>
   </div>
 </section>
 
-<section class="section section-light">
-  <div class="container two-column">
+<!-- ─── INTRO ─── -->
+<section class="section-intro">
+  <div class="inner">
     <div>
-      <h2>Welcome to SSJ Exclusive</h2>
-      <p>SSJ Exclusive offers luxury airport transfers and private tours across Cape Town and the Western Cape. With a friendly, outgoing personality and deep local knowledge, your driver adds a personal touch to every journey.</p>
-      <p>Whether you're here for a quick business trip or a long South African breakaway, enjoy seamless transport, curated recommendations, and access to local gems beyond the usual tour routes.</p>
+      <h2>Not just a ride.<br>A proper welcome.</h2>
+      <p>
+        Cape Town is one of those cities that rewards people who know where to look.
+        The problem is most visitors only get 48 hours, a Google map, and a hotel concierge
+        with three standard suggestions. You deserve better than that.
+      </p>
+      <p>
+        SSJ Exclusive gives you an experienced local host, a clean comfortable vehicle,
+        and zero stress from the moment you land. No guesswork. No generic tourist stops.
+        Just an experience that fits how you actually want to travel.
+      </p>
     </div>
-
-    <div>
-      <ul class="feature-list">
-        <li>Private & group airport transfers</li>
-        <li>Custom Cape Town & Peninsula tours</li>
-        <li>Wine farm experiences on request</li>
-        <li>Local insights & hidden spots</li>
-      </ul>
+    <div class="host-card">
+      <div class="host-card-label">A word from your host</div>
+      <blockquote>
+        "I've called Cape Town home my whole life — and it never gets old showing it off to someone seeing it for the first time."
+      </blockquote>
+      <p>
+        Behind every SSJ booking is one dedicated host who knows these roads, these neighbourhoods,
+        and which wine farm deserves your afternoon. Professional, punctual, and genuinely
+        good company — without the awkward small talk if that's not your thing.
+      </p>
     </div>
   </div>
 </section>
 
-<section class="section section-dark">
-  <div class="container two-column">
-    <div>
-      <h2>Airport Transfers</h2>
-      <p>Reliable, on-time transfers from Cape Town International Airport to your hotel, villa, or business destination.</p>
-      <a href="airport-transfers.html" class="text-link">View airport transfer details →</a>
-    </div>
+<!-- ─── SERVICES ─── -->
+<section class="section-services">
+  <div class="inner">
+    <p class="section-label">What we do</p>
+    <div class="services-grid">
 
-    <div class="card">
-      <h3>Highlights</h3>
-      <ul>
-        <li>Meet & greet at arrivals</li>
-        <li>Clean, comfortable vehicles</li>
-        <li>Flexible group sizes</li>
-        <li>Safe, professional driving</li>
-      </ul>
-    </div>
-  </div>
-</section>
+      <div class="svc-card">
+        <h3>Airport Transfers</h3>
+        <p>
+          We track your flight. We're there when you land. Clean vehicle, help with bags,
+          and a smooth ride to wherever you're headed — no apps, no surge pricing, no surprises.
+          Just a familiar face holding a sign with your name on it.
+        </p>
+        <a href="airport-transfers.html" class="svc-link">Book a transfer →</a>
+      </div>
 
-<section class="section section-light">
-  <div class="container two-column">
-    <div>
-      <h2>Private Tours</h2>
-      <p>Discover Cape Town like a local. From Table Mountain and the V&A Waterfront to hidden beaches and neighbourhoods, your itinerary can be tailored to your pace and interests.</p>
-      <a href="private-tours.html" class="text-link">Explore private tour options →</a>
-    </div>
+      <div class="svc-card">
+        <h3>Private Cape Town Tours</h3>
+        <p>
+          Table Mountain. Bo-Kaap. Boulders Beach. Signal Hill at golden hour.
+          We go where you want, at your pace — and yes, we know the spots the guidebooks missed.
+          Your itinerary, your call.
+        </p>
+        <a href="private-tours.html" class="svc-link">Explore tour options →</a>
+      </div>
 
-    <div class="card">
-      <h3>Popular Experiences</h3>
-      <ul>
-        <li>Cape Town city highlights</li>
-        <li>Cape Peninsula & Cape Point</li>
-        <li>Hidden local gems & viewpoints</li>
-        <li>Custom full-day itineraries</li>
-      </ul>
-    </div>
-  </div>
-</section>
+      <div class="svc-card">
+        <h3>Winelands Day Trips</h3>
+        <p>
+          Stellenbosch, Franschhoek, Constantia — world-class wine regions, all within reach.
+          You taste. We drive. Safely back in time for dinner, or we'll find you a good one
+          along the way.
+        </p>
+        <a href="wine-tours.html" class="svc-link">Plan your wine day →</a>
+      </div>
 
-<section class="section section-dark">
-  <div class="container two-column">
-    <div>
-      <h2>Wine Farm Tours</h2>
-      <p>Experience the world-famous wine regions of Stellenbosch, Franschhoek, and Constantia with a dedicated driver for the day.</p>
-      <a href="wine-tours.html" class="text-link">Discover wine tour options →</a>
-    </div>
-
-    <div class="card">
-      <h3>On Request</h3>
-      <ul>
-        <li>Custom wine itineraries</li>
-        <li>Lunch reservations</li>
-        <li>Photo stops & viewpoints</li>
-        <li>Full-day or multi-day bookings</li>
-      </ul>
     </div>
   </div>
 </section>
 
+<!-- ─── SCENIC ─── -->
+<section class="section-scenic">
+  <div class="inner">
+    <h2>You're going to want to see this.</h2>
+    <p class="sub">A few of the places guests remember long after they've gone home.</p>
+
+    <div class="scenic-grid">
+
+      <!--
+        SCENIC IMAGE 1: img/scenic-chapmans-peak.jpg
+        Suggested: Chapman's Peak Drive, Atlantic view from the cliff road.
+        Search: "Chapman's Peak Drive Cape Town"
+      -->
+      <div class="scenic-card scenic-card-1">
+        <div class="scenic-card-content">
+          <p class="scenic-place">Chapman's Peak Drive</p>
+          <h3>The road that makes people pull over</h3>
+          <p>
+            Nine kilometres carved into a cliff face. Atlantic on one side, mountain on the other.
+            It's the kind of drive you don't forget — and yes, we always stop for photos.
+          </p>
+        </div>
+      </div>
+
+      <!--
+        SCENIC IMAGE 2: img/scenic-franschhoek.jpg
+        Suggested: Franschhoek valley aerial or vineyard with mountains behind.
+        Search: "Franschhoek valley vineyards aerial"
+      -->
+      <div class="scenic-card scenic-card-2">
+        <div class="scenic-card-content">
+          <p class="scenic-place">Franschhoek Valley</p>
+          <h3>Where the mountains meet the vineyards</h3>
+          <p>
+            French Huguenot history, mountain-framed estates, and some of the finest food
+            in South Africa. Bring an appetite — for everything.
+          </p>
+        </div>
+      </div>
+
+      <!--
+        SCENIC IMAGE 3: img/scenic-cape-point.jpg
+        Suggested: Cape Point lighthouse or dramatic cliffs at the Cape of Good Hope.
+        Search: "Cape Point lighthouse South Africa"
+      -->
+      <div class="scenic-card scenic-card-3">
+        <div class="scenic-card-content">
+          <p class="scenic-place">Cape Point</p>
+          <h3>The edge of the continent</h3>
+          <p>
+            Wild coastline, dramatic cliffs, and brazen baboons who have absolutely no concept
+            of personal space. A proper adventure at the southern tip of Africa.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHATSAPP BANNER ─── -->
+<div class="wa-banner">
+  <div class="inner">
+    <div class="wa-icon-circle">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </div>
+    <div class="wa-text">
+      <h3>Chat directly with your host on WhatsApp</h3>
+      <p>Flight changes, special requests, or just a question before you book — message us directly. No call centres, no bots, no hold music.</p>
+    </div>
+    <a href="https://wa.me/27722726623?text=Hi%2C%20I%27d%20like%20to%20book%20a%20transfer%20or%20tour%20with%20SSJ%20Exclusive"
+       target="_blank"
+       rel="noopener"
+       class="wa-btn">Message us on WhatsApp</a>
+  </div>
+</div>
+
+<!-- ─── FOOTER ─── -->
 <footer class="site-footer">
-  <div class="container footer-top">
+  <div class="footer-top">
     <div class="footer-brand">
-      <img src="img/logo.png" class="footer-logo" alt="SSJ Exclusive Logo" />
-      <p>Luxury transfers & private tours in Cape Town, South Africa.</p>
+      <img src="img/logo.png" class="footer-logo" alt="SSJ Exclusive" />
+      <p>Luxury transfers and private tours across Cape Town and the Western Cape. Professional, personal, and proudly local.</p>
     </div>
 
-    <div class="footer-links">
+    <div class="footer-col">
       <h4>Explore</h4>
       <a href="airport-transfers.html">Airport Transfers</a>
       <a href="private-tours.html">Private Tours</a>
-      <a href="wine-tours.html">Wine Tours</a>
+      <a href="wine-tours.html">Winelands Tours</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </div>
 
-    <div class="footer-links">
-      <h4>Info</h4>
-      <a href="why-choose-us.html">Why Choose Us</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="terms.html">Terms & Conditions</a>
-      <a href="privacy.html">Privacy Policy</a>
+    <div class="footer-col">
+      <h4>Get in touch</h4>
+      <div class="footer-contact">
+        <a href="mailto:info@ssjexclusive.com">info@ssjexclusive.com</a><br>
+        <a href="https://wa.me/27722726623" target="_blank" rel="noopener">+27 72 272 6623</a><br>
+        <br>
+        Mon – Sun: 06:00 – 22:00<br>
+        Cape Town &amp; Western Cape
+      </div>
     </div>
   </div>
 
-  <div class="container footer-bottom">
-    <span>© <span id="year"></span> SSJ Exclusive Transfers & Tours</span>
-    <span class="powered-by">Powered by <a href="https://sysvyn.com" target="_blank">sysvyn.com</a></span>
+  <div class="footer-bottom">
+    <span>© <span id="year"></span> SSJ Exclusive Transfers &amp; Tours</span>
+    <span>Powered by <a href="https://sysvyn.com" target="_blank" rel="noopener">sysvyn.com</a></span>
   </div>
 </footer>
 
