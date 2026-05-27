@@ -289,33 +289,43 @@
           <strong>Hours:</strong> Mon–Sun, 06:00–22:00
         </p>
       </div>
-      <form class="booking-form" onsubmit="return false;">
+      <iframe name="ssj-transfer-frame" style="display:none;"></iframe>
+      <form
+        id="transferForm"
+        class="booking-form"
+        action="https://formspree.io/f/xlgwlyjo"
+        method="POST"
+        target="ssj-transfer-frame"
+        onsubmit="handleTransferSubmit(event)"
+      >
+        <input type="hidden" name="_subject" value="New Airport Transfer Enquiry — SSJ Exclusive" />
         <div class="form-row">
           <label>Full name</label>
-          <input type="text" placeholder="Your name" />
+          <input type="text" name="name" placeholder="Your name" required />
         </div>
         <div class="form-row">
           <label>Email address</label>
-          <input type="email" placeholder="you@example.com" />
+          <input type="email" name="email" placeholder="you@example.com" required />
         </div>
         <div class="form-row">
           <label>Flight number</label>
-          <input type="text" placeholder="e.g. BA 059" />
+          <input type="text" name="flight_number" placeholder="e.g. BA 059" />
         </div>
         <div class="form-row">
           <label>Arrival date</label>
-          <input type="date" />
+          <input type="date" name="arrival_date" />
         </div>
         <div class="form-row">
           <label>Drop-off address</label>
-          <textarea rows="3" placeholder="Hotel name, villa address, Airbnb — wherever you're headed"></textarea>
+          <textarea name="destination" rows="3" placeholder="Hotel name, villa address, Airbnb — wherever you're headed"></textarea>
         </div>
         <div class="form-row">
           <label>Anything else?</label>
-          <textarea rows="2" placeholder="Group size, extra luggage, infant seat needed, etc."></textarea>
+          <textarea name="message" rows="2" placeholder="Group size, extra luggage, infant seat needed, etc."></textarea>
         </div>
-        <a href="https://wa.me/27722726623?text=Hi%2C%20I%27d%20like%20to%20book%20an%20airport%20transfer%20with%20SSJ%20Exclusive" target="_blank" rel="noopener" class="btn-primary btn-full" style="text-align:center;">Book via WhatsApp</a>
-        <p style="font-size:0.78rem;color:#888;text-align:center;margin-top:10px;">Or email your details to <a href="mailto:info@ssjexclusive.com" style="color:var(--gold);">info@ssjexclusive.com</a></p>
+        <button type="submit" id="transferSubmitBtn" class="btn-primary btn-full" style="border:none;cursor:pointer;font-family:'DM Sans',sans-serif;">Send Enquiry</button>
+        <p id="transferSuccess" style="display:none;margin-top:12px;text-align:center;color:var(--gold);font-size:0.9rem;">&#10003; Enquiry sent! We'll be in touch within a few hours to confirm.</p>
+        <p style="font-size:0.78rem;color:#888;text-align:center;margin-top:10px;">No payment required to enquire &bull; We reply within a few hours</p>
       </form>
     </div>
   </div>
@@ -363,6 +373,33 @@
     <span>Powered by <a href="https://sysvyn.com" target="_blank">sysvyn.com</a></span>
   </div>
 </footer>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function handleTransferSubmit(e) {
+    var btn     = document.getElementById('transferSubmitBtn');
+    var form    = document.getElementById('transferForm');
+    var success = document.getElementById('transferSuccess');
+
+    btn.disabled    = true;
+    btn.textContent = 'Sending\u2026';
+
+    // Give Formspree time to receive via the hidden iframe, then show confirmation
+    setTimeout(function () {
+      form.querySelectorAll('input, textarea').forEach(function (el) { el.value = ''; });
+      form.querySelectorAll('select').forEach(function (el) { el.selectedIndex = 0; });
+      btn.textContent       = '\u2713 Enquiry Sent!';
+      btn.style.background  = '#4a7c59';
+      success.style.display = 'block';
+
+      setTimeout(function () {
+        btn.disabled         = false;
+        btn.textContent      = 'Send Enquiry';
+        btn.style.background = '';
+        success.style.display = 'none';
+      }, 8000);
+    }, 1000);
+  }
+</script>
 </body>
 </html>
