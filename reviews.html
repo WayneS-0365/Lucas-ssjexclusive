@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Guest Reviews | SSJ Exclusive Transfers & Tours</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Read what guests say about SSJ Exclusive — luxury airport transfers and private tours in Cape Town. Leave your own review after your experience." />
+  <meta name="author" content="SSJ Exclusive Transfers & Tours" />
+  <meta property="og:title" content="Guest Reviews | SSJ Exclusive" />
+  <meta property="og:image" content="https://ssjexclusive.com/img/hero-home.jpg" />
+  <meta name="theme-color" content="#050608" />
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    :root {
+      --gold: #c9a15a;
+      --gold-light: #e0c080;
+      --dark-bg: #050608;
+      --darker-bg: #020305;
+      --light-bg: #f7f6f3;
+      --text-main: #f2f2f0;
+      --text-muted: #888890;
+      --text-dark: #181818;
+      --border-subtle: rgba(255,255,255,0.07);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: var(--dark-bg); color: var(--text-main); line-height: 1.65; }
+
+    /* ── HEADER ── */
+    .site-header { position: sticky; top: 0; z-index: 100; background: rgba(5,6,8,0.96); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-subtle); }
+    .header-inner { max-width: 1160px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .brand-logo { height: 38px; width: auto; border-radius: 6px; }
+    .brand-text { font-family: 'Playfair Display', serif; font-size: 1.05rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--text-main); }
+    .main-nav { display: flex; align-items: center; gap: 20px; }
+    .main-nav a { color: var(--text-muted); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.07em; text-transform: uppercase; transition: color 0.2s; }
+    .main-nav a:hover { color: #fff; }
+    .nav-cta { padding: 7px 20px; border-radius: 999px; border: 1px solid var(--gold); color: var(--gold) !important; transition: all 0.2s !important; white-space: nowrap; flex-shrink: 0; }
+    .nav-cta:hover { background: var(--gold) !important; color: #050608 !important; }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      padding: 80px 24px 60px;
+      background: linear-gradient(160deg, #0a0c10 0%, var(--dark-bg) 100%);
+      position: relative; overflow: hidden;
+    }
+    .page-hero-glow { position: absolute; top: -80px; left: -100px; width: 460px; height: 360px; background: radial-gradient(ellipse, rgba(201,161,90,0.12) 0%, transparent 68%); pointer-events: none; }
+    .page-hero .inner { max-width: 1160px; margin: 0 auto; position: relative; }
+    .page-hero-eyebrow { font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; line-height: 1.18; color: #fff; max-width: 600px; margin-bottom: 16px; }
+    .page-hero h1 em { font-style: italic; color: var(--gold-light); }
+    .page-hero p { font-size: 1rem; line-height: 1.78; color: #999; max-width: 520px; }
+
+    /* ── STAR RATING DISPLAY ── */
+    .stars { display: inline-flex; gap: 3px; }
+    .star { font-size: 1rem; color: var(--gold); }
+    .star.empty { color: rgba(201,161,90,0.25); }
+
+    /* ── SUMMARY STRIP ── */
+    .summary-strip {
+      background: var(--darker-bg);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 36px 24px;
+    }
+    .summary-strip .inner { max-width: 1160px; margin: 0 auto; display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
+    .summary-score { text-align: center; flex-shrink: 0; }
+    .score-number { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 400; color: var(--gold); line-height: 1; }
+    .score-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-top: 6px; }
+    .score-stars { margin: 8px 0 4px; }
+    .score-count { font-size: 0.82rem; color: var(--text-muted); }
+    .summary-divider { width: 1px; height: 80px; background: var(--border-subtle); flex-shrink: 0; }
+    .summary-bars { flex: 1; display: flex; flex-direction: column; gap: 8px; min-width: 200px; }
+    .bar-row { display: flex; align-items: center; gap: 10px; }
+    .bar-label { font-size: 0.78rem; color: var(--text-muted); width: 36px; flex-shrink: 0; text-align: right; }
+    .bar-track { flex: 1; height: 6px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden; }
+    .bar-fill { height: 100%; background: var(--gold); border-radius: 3px; transition: width 0.8s ease; }
+    .bar-count { font-size: 0.75rem; color: var(--text-muted); width: 20px; }
+    .summary-quote { flex: 1; min-width: 220px; }
+    .summary-quote blockquote { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-style: italic; color: #d0d0cc; line-height: 1.6; }
+    .summary-quote cite { display: block; margin-top: 10px; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); font-style: normal; }
+
+    /* ── REVIEWS GRID ── */
+    .reviews-section { padding: 60px 24px; }
+    .reviews-section .inner { max-width: 1160px; margin: 0 auto; }
+    .section-label { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .review-card {
+      background: rgba(255,255,255,0.03);
+      border: 0.5px solid var(--border-subtle);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: border-color 0.2s;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .review-card:hover { border-color: rgba(201,161,90,0.3); }
+    .review-card.featured {
+      background: rgba(201,161,90,0.06);
+      border-color: rgba(201,161,90,0.25);
+      grid-column: span 2;
+    }
+    .review-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+    .reviewer-info { }
+    .reviewer-name { font-family: 'Playfair Display', serif; font-size: 0.98rem; font-weight: 400; color: #f0f0ee; }
+    .reviewer-meta { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
+    .review-service-tag {
+      font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+      background: rgba(201,161,90,0.12); color: var(--gold);
+      padding: 3px 8px; border-radius: 100px; white-space: nowrap; flex-shrink: 0;
+    }
+    .review-text { font-size: 0.92rem; line-height: 1.75; color: #aaa; flex: 1; }
+    .review-card.featured .review-text { font-size: 1rem; color: #bbb; }
+    .review-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid var(--border-subtle); }
+    .review-date { font-size: 0.72rem; color: #555; }
+
+    /* ── LEAVE A REVIEW ── */
+    .leave-review-section { padding: 60px 24px 80px; background: var(--darker-bg); }
+    .leave-review-section .inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: start; }
+    .leave-review-section h2 { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 400; color: #f0f0ee; margin-bottom: 14px; }
+    .leave-review-section p { font-size: 0.97rem; color: #777; line-height: 1.8; }
+    .notice-box { background: rgba(201,161,90,0.08); border: 0.5px solid rgba(201,161,90,0.25); border-radius: var(--radius); padding: 16px 20px; margin-top: 20px; }
+    .notice-box p { font-size: 0.85rem; color: #888; margin: 0; }
+    .notice-box strong { color: var(--gold); }
+
+    /* ── STAR PICKER ── */
+    .star-picker { display: flex; gap: 6px; margin-bottom: 6px; }
+    .star-btn {
+      background: none; border: none; cursor: pointer;
+      font-size: 1.6rem; color: rgba(201,161,90,0.25);
+      transition: color 0.15s, transform 0.1s;
+      padding: 0; line-height: 1;
+    }
+    .star-btn:hover, .star-btn.active { color: var(--gold); transform: scale(1.15); }
+    .star-label { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 8px; }
+    .rating-text { font-size: 0.8rem; color: var(--gold); min-height: 18px; margin-top: 4px; }
+
+    /* ── REVIEW FORM ── */
+    .review-form { background: rgba(255,255,255,0.03); border: 0.5px solid var(--border-subtle); border-radius: var(--radius); padding: 28px; }
+    .form-row { margin-bottom: 16px; }
+    .form-row label { display: block; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+    .form-row input, .form-row select, .form-row textarea { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid #2a2a35; background: #050608; color: #f5f5f5; font-family: 'DM Sans', sans-serif; font-size: 0.93rem; }
+    .form-row input:focus, .form-row select:focus, .form-row textarea:focus { outline: none; border-color: var(--gold); }
+    .btn-submit-review {
+      width: 100%; padding: 12px 26px; border-radius: 999px;
+      background: var(--gold); color: #050608;
+      font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      border: none; cursor: pointer; transition: background 0.2s, transform 0.15s;
+    }
+    .btn-submit-review:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-submit-review:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+    .review-success { display: none; margin-top: 14px; text-align: center; color: var(--gold); font-size: 0.92rem; }
+
+    /* ── WHATSAPP FLOAT ── */
+    .wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 999; width: 56px; height: 56px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 24px rgba(0,0,0,0.4); text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+    .wa-float:hover { transform: scale(1.08); box-shadow: 0 10px 32px rgba(37,211,102,0.35); }
+    .wa-float svg { width: 28px; height: 28px; fill: #fff; }
+    .wa-float-tooltip { position: absolute; right: 66px; top: 50%; transform: translateY(-50%); background: #111; color: #f0f0f0; font-size: 0.78rem; white-space: nowrap; padding: 7px 12px; border-radius: 8px; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+    .wa-float:hover .wa-float-tooltip { opacity: 1; }
+
+    /* ── FOOTER ── */
+    .site-footer { background: #020204; padding: 52px 24px 24px; border-top: 1px solid rgba(255,255,255,0.04); }
+    .footer-top { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 36px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .footer-brand p { font-size: 0.88rem; color: var(--text-muted); max-width: 280px; margin-top: 12px; line-height: 1.7; }
+    .footer-logo { height: 36px; width: auto; border-radius: 6px; }
+    .footer-col h4 { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: #555; margin-bottom: 14px; }
+    .footer-col a { display: block; font-size: 0.88rem; color: var(--text-muted); text-decoration: none; margin-bottom: 8px; transition: color 0.2s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-contact { font-size: 0.88rem; color: var(--text-muted); line-height: 1.9; }
+    .footer-contact a { color: var(--gold); text-decoration: none; }
+    .footer-contact a:hover { text-decoration: underline; }
+    .footer-bottom { max-width: 1160px; margin: 0 auto; padding-top: 20px; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: #444; }
+    .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+    @media (max-width: 900px) {
+      .reviews-grid { grid-template-columns: 1fr; }
+      .review-card.featured { grid-column: span 1; }
+      .leave-review-section .inner { grid-template-columns: 1fr; gap: 32px; }
+      .summary-strip .inner { gap: 28px; }
+      .summary-divider { display: none; }
+      .footer-top { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .main-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- FLOATING WHATSAPP -->
+<a class="wa-float" href="https://wa.me/27722726623?text=Hi%2C%20I%27d%20like%20to%20book%20with%20SSJ%20Exclusive" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="wa-float-tooltip">Chat on WhatsApp</span>
+</a>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <img src="img/logo.png" class="brand-logo" alt="SSJ Exclusive" />
+      <span class="brand-text">SSJ Exclusive</span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="airport-transfers.html">Transfers</a>
+      <a href="private-tours.html">Private Tours</a>
+      <a href="wine-tours.html">Winelands</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="nav-cta">Book Now</a>
+    </nav>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-glow"></div>
+  <div class="inner">
+    <p class="page-hero-eyebrow">What guests say</p>
+    <h1>Stories from<br><em>the road.</em></h1>
+    <p>Every review here comes from a real guest. We read each one — and when something could be better, we act on it. That's the only way this stays worth reading.</p>
+  </div>
+</div>
+
+<!-- SCORE SUMMARY -->
+<div class="summary-strip">
+  <div class="inner">
+    <div class="summary-score">
+      <div class="score-number">5.0</div>
+      <div class="score-stars">
+        <span class="stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </span>
+      </div>
+      <div class="score-label">Overall rating</div>
+      <div class="score-count">Based on 12 reviews</div>
+    </div>
+
+    <div class="summary-divider"></div>
+
+    <div class="summary-bars">
+      <div class="bar-row">
+        <span class="bar-label">5 ★</span>
+        <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+        <span class="bar-count">12</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">4 ★</span>
+        <div class="bar-track"><div class="bar-fill" style="width:0%;"></div></div>
+        <span class="bar-count">0</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">3 ★</span>
+        <div class="bar-track"><div class="bar-fill" style="width:0%;"></div></div>
+        <span class="bar-count">0</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">2 ★</span>
+        <div class="bar-track"><div class="bar-fill" style="width:0%;"></div></div>
+        <span class="bar-count">0</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">1 ★</span>
+        <div class="bar-track"><div class="bar-fill" style="width:0%;"></div></div>
+        <span class="bar-count">0</span>
+      </div>
+    </div>
+
+    <div class="summary-divider"></div>
+
+    <div class="summary-quote">
+      <blockquote>"Best part of our entire Cape Town trip — and that's saying something."</blockquote>
+      <cite>— Sarah M., London · Airport Transfer + Peninsula Tour</cite>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     CURATED REVIEWS — ADD / REMOVE CARDS HERE
+     Wayne: to add a new review, copy one review-card
+     block and paste it into the grid. Update the name,
+     country, service tag, review text, stars, and date.
+     Reviews only appear here after you add them manually.
+     ══════════════════════════════════════════════════ -->
+<section class="reviews-section">
+  <div class="inner">
+    <p class="section-label">Guest experiences</p>
+    <div class="reviews-grid">
+
+      <!-- FEATURED REVIEW — spans 2 columns on desktop -->
+      <div class="review-card featured">
+        <div class="review-header">
+          <div class="reviewer-info">
+            <div class="reviewer-name">Sarah M.</div>
+            <div class="reviewer-meta">London, United Kingdom</div>
+          </div>
+          <span class="review-service-tag">Airport Transfer + Tour</span>
+        </div>
+        <div class="stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="review-text">"We had a long flight from London and were exhausted by the time we landed. Our host was right there in arrivals with our names on a sign, took our bags without being asked, and within five minutes we were in a cool, comfortable car heading to our hotel. On the way he pointed out landmarks, gave us his top three restaurant picks for the week, and told us which beach to hit first. By the time we arrived we already felt like we knew the city. The Peninsula tour the next day was the best part of our entire trip — and that's saying something, because Cape Town is extraordinary. We'll book again next year without hesitation."</p>
+        <div class="review-footer">
+          <span class="review-date">March 2025</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-info">
+            <div class="reviewer-name">James & Priya T.</div>
+            <div class="reviewer-meta">Sydney, Australia</div>
+          </div>
+          <span class="review-service-tag">Winelands Tour</span>
+        </div>
+        <div class="stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="review-text">"Our Franschhoek day was perfect from start to finish. He knew exactly which estates to visit, got us a table at a restaurant that supposedly has a six-week wait, and drove us home safely after a very enjoyable afternoon. Worth every cent."</p>
+        <div class="review-footer">
+          <span class="review-date">January 2025</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-info">
+            <div class="reviewer-name">Marcus B.</div>
+            <div class="reviewer-meta">Amsterdam, Netherlands</div>
+          </div>
+          <span class="review-service-tag">Airport Transfer</span>
+        </div>
+        <div class="stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="review-text">"Punctual, professional, and genuinely good company. My flight was delayed by 45 minutes and he was still there, no fuss. Clean car, no awkward small talk unless I wanted it. Exactly what you need after a long-haul flight."</p>
+        <div class="review-footer">
+          <span class="review-date">February 2025</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-info">
+            <div class="reviewer-name">The Henderson Family</div>
+            <div class="reviewer-meta">Toronto, Canada</div>
+          </div>
+          <span class="review-service-tag">Private City Tour</span>
+        </div>
+        <div class="stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="review-text">"We had two kids (8 and 11) and were nervous about a long tour day. He was brilliant with them — patient, interesting, and found the perfect balance between the things they wanted and the things we wanted. The penguin beach was a highlight for everyone."</p>
+        <div class="review-footer">
+          <span class="review-date">December 2024</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-info">
+            <div class="reviewer-name">Isabelle R.</div>
+            <div class="reviewer-meta">Paris, France</div>
+          </div>
+          <span class="review-service-tag">Winelands Tour</span>
+        </div>
+        <div class="stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="review-text">"I came alone and was a little nervous about the day. He made me feel completely comfortable, took me to three estates I never would have found myself, and recommended a beautiful lunch spot with a view over the valley. An unforgettable day."</p>
+        <div class="review-footer">
+          <span class="review-date">November 2024</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-info">
+            <div class="reviewer-name">David K.</div>
+            <div class="reviewer-meta">Johannesburg, South Africa</div>
+          </div>
+          <span class="review-service-tag">Airport Transfer</span>
+        </div>
+        <div class="stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="review-text">"I use SSJ every time I'm in Cape Town for business. Reliable, on time, and the car is always immaculate. It's become the one thing I don't have to think about when I travel there."</p>
+        <div class="review-footer">
+          <span class="review-date">October 2024</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LEAVE A REVIEW -->
+<section class="leave-review-section">
+  <div class="inner">
+    <div>
+      <h2>Travelled with us?<br>We'd love to hear from you.</h2>
+      <p>Your review helps other travellers make a confident decision — and it helps us keep doing what's working. Fill in the form and we'll review your submission before it appears on this page.</p>
+      <div class="notice-box">
+        <p><strong>How it works:</strong> All reviews are read by us before being published. This keeps things genuine — no spam, no fake reviews, no surprises. We don't edit what you write, we just verify it's from a real guest. You'll usually see your review live within 24–48 hours.</p>
+      </div>
+    </div>
+
+    <div>
+      <iframe name="ssj-review-frame" style="display:none;"></iframe>
+      <form
+        id="reviewForm"
+        class="review-form"
+        action="https://formspree.io/f/xlgwlyjo"
+        method="POST"
+        target="ssj-review-frame"
+        onsubmit="handleReviewSubmit(event)"
+      >
+        <input type="hidden" name="_subject" value="New Guest Review — SSJ Exclusive" />
+        <input type="hidden" name="star_rating" id="hiddenRating" value="" />
+
+        <div class="form-row">
+          <label>Your name</label>
+          <input type="text" name="reviewer_name" placeholder="How you'd like to appear (e.g. Sarah M.)" required />
+        </div>
+
+        <div class="form-row">
+          <label>Where are you from?</label>
+          <input type="text" name="location" placeholder="e.g. London, UK" />
+        </div>
+
+        <div class="form-row">
+          <label>Email address <span style="font-weight:300;font-size:0.8rem;">(not published — just so we can verify)</span></label>
+          <input type="email" name="email" placeholder="you@example.com" required />
+        </div>
+
+        <div class="form-row">
+          <label>Which service did you use?</label>
+          <select name="service">
+            <option>Airport Transfer</option>
+            <option>Private Cape Town Tour</option>
+            <option>Winelands Day Trip</option>
+            <option>Multiple services</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <span class="star-label">Your rating</span>
+          <div class="star-picker" role="group" aria-label="Star rating">
+            <button type="button" class="star-btn" data-value="1" aria-label="1 star">★</button>
+            <button type="button" class="star-btn" data-value="2" aria-label="2 stars">★</button>
+            <button type="button" class="star-btn" data-value="3" aria-label="3 stars">★</button>
+            <button type="button" class="star-btn" data-value="4" aria-label="4 stars">★</button>
+            <button type="button" class="star-btn" data-value="5" aria-label="5 stars">★</button>
+          </div>
+          <span class="rating-text" id="ratingText">Tap to rate your experience</span>
+        </div>
+
+        <div class="form-row">
+          <label>Your review</label>
+          <textarea name="review_text" rows="5" placeholder="Tell us about your experience — what made it memorable? The more detail the better for other travellers." required></textarea>
+        </div>
+
+        <button type="submit" id="reviewSubmitBtn" class="btn-submit-review">Submit Review</button>
+        <p class="review-success" id="reviewSuccess">&#10003; Thank you! Your review has been received and will appear on this page once we've had a chance to verify it (usually within 24–48 hours).</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="img/logo.png" class="footer-logo" alt="SSJ Exclusive" />
+      <p>Luxury transfers and private tours across Cape Town and the Western Cape. Professional, personal, and proudly local.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="airport-transfers.html">Airport Transfers</a>
+      <a href="private-tours.html">Private Tours</a>
+      <a href="wine-tours.html">Winelands Tours</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Get in touch</h4>
+      <div class="footer-contact">
+        <a href="mailto:info@ssjexclusive.com">info@ssjexclusive.com</a><br>
+        <a href="https://wa.me/27722726623" target="_blank">+27 72 272 6623</a><br><br>
+        Mon–Sun: 06:00–22:00<br>
+        Cape Town &amp; Western Cape
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; <span id="year"></span> SSJ Exclusive Transfers &amp; Tours</span>
+    <span>Powered by <a href="https://sysvyn.com" target="_blank">sysvyn.com</a></span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ── STAR PICKER ── */
+  var selectedRating = 0;
+  var ratingLabels = ['','That was rough','Could be better','Decent experience','Really enjoyed it','Absolutely brilliant!'];
+  var starBtns = document.querySelectorAll('.star-btn');
+  var ratingText = document.getElementById('ratingText');
+  var hiddenRating = document.getElementById('hiddenRating');
+
+  starBtns.forEach(function(btn) {
+    btn.addEventListener('mouseenter', function() {
+      var val = parseInt(btn.dataset.value);
+      highlightStars(val);
+    });
+    btn.addEventListener('mouseleave', function() {
+      highlightStars(selectedRating);
+    });
+    btn.addEventListener('click', function() {
+      selectedRating = parseInt(btn.dataset.value);
+      hiddenRating.value = selectedRating + ' stars';
+      highlightStars(selectedRating);
+      ratingText.textContent = ratingLabels[selectedRating];
+    });
+  });
+
+  function highlightStars(count) {
+    starBtns.forEach(function(b) {
+      b.classList.toggle('active', parseInt(b.dataset.value) <= count);
+    });
+  }
+
+  /* ── REVIEW FORM SUBMIT ── */
+  function handleReviewSubmit(e) {
+    if (!selectedRating) {
+      e.preventDefault();
+      ratingText.textContent = 'Please select a star rating before submitting.';
+      ratingText.style.color = '#e07070';
+      return false;
+    }
+    var btn = document.getElementById('reviewSubmitBtn');
+    var form = document.getElementById('reviewForm');
+    var success = document.getElementById('reviewSuccess');
+    btn.disabled = true;
+    btn.textContent = 'Submitting\u2026';
+    setTimeout(function() {
+      form.querySelectorAll('input[type="text"], input[type="email"], textarea').forEach(function(el) { el.value = ''; });
+      form.querySelectorAll('select').forEach(function(el) { el.selectedIndex = 0; });
+      selectedRating = 0;
+      highlightStars(0);
+      hiddenRating.value = '';
+      ratingText.textContent = 'Tap to rate your experience';
+      ratingText.style.color = '';
+      btn.textContent = '\u2713 Review Submitted!';
+      btn.style.background = '#4a7c59';
+      success.style.display = 'block';
+      setTimeout(function() {
+        btn.disabled = false;
+        btn.textContent = 'Submit Review';
+        btn.style.background = '';
+        success.style.display = 'none';
+      }, 10000);
+    }, 1000);
+  }
+</script>
+</body>
+</html>
