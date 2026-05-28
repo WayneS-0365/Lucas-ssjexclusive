@@ -290,13 +290,15 @@
           <strong>Hours:</strong> Mon–Sun, 06:00–22:00
         </p>
       </div>
-      <form class="booking-form" onsubmit="return false;">
-        <div class="form-row"><label>Full name</label><input type="text" placeholder="Your name" /></div>
-        <div class="form-row"><label>Email address</label><input type="email" placeholder="you@example.com" /></div>
-        <div class="form-row"><label>Preferred date</label><input type="date" /></div>
+      <iframe name="ssj-wine-frame" style="display:none;"></iframe>
+      <form id="wineForm" class="booking-form" action="https://formspree.io/f/xlgwlyjo" method="POST" target="ssj-wine-frame" onsubmit="handleWineSubmit(event)">
+        <input type="hidden" name="_subject" value="New Winelands Tour Enquiry — SSJ Exclusive" />
+        <div class="form-row"><label>Full name</label><input type="text" name="name" placeholder="Your name" required /></div>
+        <div class="form-row"><label>Email address</label><input type="email" name="email" placeholder="you@example.com" required /></div>
+        <div class="form-row"><label>Preferred date</label><input type="date" name="date" /></div>
         <div class="form-row">
           <label>Preferred region</label>
-          <select>
+          <select name="region">
             <option>Stellenbosch</option>
             <option>Franschhoek</option>
             <option>Constantia</option>
@@ -304,10 +306,11 @@
             <option>Multi-region day</option>
           </select>
         </div>
-        <div class="form-row"><label>Group size</label><input type="text" placeholder="e.g. 2 adults" /></div>
-        <div class="form-row"><label>Wine preferences &amp; any special requests</label><textarea rows="4" placeholder="Reds, whites, MCC, food pairings, dietary needs — anything helps us plan better"></textarea></div>
-        <a href="https://wa.me/27722726623?text=Hi%2C%20I%27d%20like%20to%20plan%20a%20winelands%20day%20trip%20with%20SSJ%20Exclusive" target="_blank" rel="noopener" class="btn-primary btn-full">Book via WhatsApp</a>
-        <p style="font-size:0.78rem;color:#888;text-align:center;margin-top:10px;">Or email <a href="mailto:info@ssjexclusive.com" style="color:var(--gold);">info@ssjexclusive.com</a></p>
+        <div class="form-row"><label>Group size</label><input type="text" name="group_size" placeholder="e.g. 2 adults" /></div>
+        <div class="form-row"><label>Wine preferences &amp; any special requests</label><textarea name="message" rows="4" placeholder="Reds, whites, MCC, food pairings, dietary needs — anything helps us plan better"></textarea></div>
+        <button type="submit" id="wineSubmitBtn" class="btn-primary btn-full" style="border:none;cursor:pointer;font-family:'DM Sans',sans-serif;">Send Enquiry</button>
+        <p id="wineSuccess" style="display:none;margin-top:12px;text-align:center;color:var(--gold);font-size:0.9rem;">&#10003; Enquiry sent! We'll be in touch within a few hours.</p>
+        <p style="font-size:0.78rem;color:#888;text-align:center;margin-top:10px;">No payment required to enquire &bull; We reply within a few hours</p>
       </form>
     </div>
   </div>
@@ -329,6 +332,21 @@
   </div>
   <div class="footer-bottom"><span>© <span id="year"></span> SSJ Exclusive Transfers &amp; Tours</span><span>Powered by <a href="https://sysvyn.com" target="_blank">sysvyn.com</a></span></div>
 </footer>
-<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+<script>
+  document.getElementById('year').textContent=new Date().getFullYear();
+  function handleWineSubmit(e){
+    var btn=document.getElementById('wineSubmitBtn');
+    var form=document.getElementById('wineForm');
+    var success=document.getElementById('wineSuccess');
+    btn.disabled=true; btn.textContent='Sending\u2026';
+    setTimeout(function(){
+      form.querySelectorAll('input,textarea').forEach(function(el){el.value='';});
+      form.querySelectorAll('select').forEach(function(el){el.selectedIndex=0;});
+      btn.textContent='\u2713 Enquiry Sent!'; btn.style.background='#4a7c59';
+      success.style.display='block';
+      setTimeout(function(){btn.disabled=false;btn.textContent='Send Enquiry';btn.style.background='';success.style.display='none';},8000);
+    },1000);
+  }
+</script>
 </body>
 </html>
