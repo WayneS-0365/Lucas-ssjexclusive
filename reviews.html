@@ -407,43 +407,29 @@
     </div>
 
     <div>
-      <iframe name="ssj-review-frame" style="display:none;"></iframe>
-      <form
-        id="reviewForm"
-        class="review-form"
-        action="https://formspree.io/f/xlgwlyjo"
-        method="POST"
-        target="ssj-review-frame"
-        onsubmit="handleReviewSubmit(event)"
-      >
-        <input type="hidden" name="_subject" value="New Guest Review — SSJ Exclusive" />
-        <input type="hidden" name="star_rating" id="hiddenRating" value="" />
-
+      
+      <form id="reviewForm" class="review-form">
         <div class="form-row">
           <label>Your name</label>
-          <input type="text" name="reviewer_name" placeholder="How you'd like to appear (e.g. Sarah M.)" required />
+          <input type="text" id="rv-name" placeholder="How you'd like to appear (e.g. Sarah M.)" required />
         </div>
-
         <div class="form-row">
           <label>Where are you from?</label>
-          <input type="text" name="location" placeholder="e.g. London, UK" />
+          <input type="text" id="rv-location" placeholder="e.g. London, UK" />
         </div>
-
         <div class="form-row">
           <label>Email address <span style="font-weight:300;font-size:0.8rem;">(not published — just so we can verify)</span></label>
-          <input type="email" name="email" placeholder="you@example.com" required />
+          <input type="email" id="rv-email" placeholder="you@example.com" required />
         </div>
-
         <div class="form-row">
           <label>Which service did you use?</label>
-          <select name="service">
+          <select id="rv-service">
             <option>Airport Transfer</option>
             <option>Private Cape Town Tour</option>
             <option>Winelands Day Trip</option>
             <option>Multiple services</option>
           </select>
         </div>
-
         <div class="form-row">
           <span class="star-label">Your rating</span>
           <div class="star-picker" role="group" aria-label="Star rating">
@@ -455,14 +441,12 @@
           </div>
           <span class="rating-text" id="ratingText">Tap to rate your experience</span>
         </div>
-
         <div class="form-row">
           <label>Your review</label>
-          <textarea name="review_text" rows="5" placeholder="Tell us about your experience — what made it memorable? The more detail the better for other travellers." required></textarea>
+          <textarea id="rv-text" rows="5" placeholder="Tell us about your experience — what made it memorable? The more detail the better for other travellers." required></textarea>
         </div>
-
-        <button type="submit" id="reviewSubmitBtn" class="btn-submit-review">Submit Review</button>
-        <p class="review-success" id="reviewSuccess">&#10003; Thank you! Your review has been received and will appear on this page once we've had a chance to verify it (usually within 24–48 hours).</p>
+        <button type="button" id="reviewSubmitBtn" class="btn-submit-review" onclick="handleReviewSubmit()">Submit Review</button>
+        <p class="review-success" id="reviewSuccess">&#10003; Thank you! Your review has been received and will appear on this page once we've verified it (usually within 24–48 hours).</p>
       </form>
     </div>
   </div>
@@ -519,7 +503,6 @@
     });
     btn.addEventListener('click', function() {
       selectedRating = parseInt(btn.dataset.value);
-      hiddenRating.value = selectedRating + ' stars';
       highlightStars(selectedRating);
       ratingText.textContent = ratingLabels[selectedRating];
     });
@@ -532,36 +515,69 @@
   }
 
   /* ── REVIEW FORM SUBMIT ── */
-  function handleReviewSubmit(e) {
+  function handleReviewSubmit() {
+    var name    = document.getElementById('rv-name').value.trim();
+    var location= document.getElementById('rv-location').value.trim();
+    var email   = document.getElementById('rv-email').value.trim();
+    var service = document.getElementById('rv-service').value;
+    var text    = document.getElementById('rv-text').value.trim();
+    var btn     = document.getElementById('reviewSubmitBtn');
+    var success = document.getElementById('reviewSuccess');
+    var ratingText = document.getElementById('ratingText');
+
+    if (!name || !email) { alert('Please fill in your name and email address.'); return; }
     if (!selectedRating) {
-      e.preventDefault();
       ratingText.textContent = 'Please select a star rating before submitting.';
       ratingText.style.color = '#e07070';
-      return false;
+      return;
     }
-    var btn = document.getElementById('reviewSubmitBtn');
-    var form = document.getElementById('reviewForm');
-    var success = document.getElementById('reviewSuccess');
+    if (!text) { alert('Please write a review before submitting.'); return; }
+
     btn.disabled = true;
     btn.textContent = 'Submitting\u2026';
-    setTimeout(function() {
-      form.querySelectorAll('input[type="text"], input[type="email"], textarea').forEach(function(el) { el.value = ''; });
-      form.querySelectorAll('select').forEach(function(el) { el.selectedIndex = 0; });
-      selectedRating = 0;
-      highlightStars(0);
-      hiddenRating.value = '';
-      ratingText.textContent = 'Tap to rate your experience';
-      ratingText.style.color = '';
-      btn.textContent = '\u2713 Review Submitted!';
-      btn.style.background = '#4a7c59';
-      success.style.display = 'block';
-      setTimeout(function() {
+
+    fetch('https://formspree.io/f/xlgwlyjo', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        _subject: 'New Guest Review — SSJ Exclusive',
+        reviewer_name: name,
+        location: location,
+        email: email,
+        service: service,
+        star_rating: selectedRating + ' stars',
+        review: text
+      })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      if (d.ok) {
+        ['rv-name','rv-location','rv-email','rv-text'].forEach(function(id){document.getElementById(id).value='';});
+        document.getElementById('rv-service').selectedIndex = 0;
+        selectedRating = 0;
+        highlightStars(0);
+        ratingText.textContent = 'Tap to rate your experience';
+        ratingText.style.color = '';
+        btn.textContent = '\u2713 Review Submitted!';
+        btn.style.background = '#4a7c59';
+        success.style.display = 'block';
+        setTimeout(function() {
+          btn.disabled = false;
+          btn.textContent = 'Submit Review';
+          btn.style.background = '';
+          success.style.display = 'none';
+        }, 10000);
+      } else {
         btn.disabled = false;
         btn.textContent = 'Submit Review';
-        btn.style.background = '';
-        success.style.display = 'none';
-      }, 10000);
-    }, 1000);
+        alert('Something went wrong. Please email info@ssjexclusive.com');
+      }
+    })
+    .catch(function() {
+      btn.disabled = false;
+      btn.textContent = 'Submit Review';
+      alert('Something went wrong. Please email info@ssjexclusive.com');
+    });
   }
 </script>
 </body>
