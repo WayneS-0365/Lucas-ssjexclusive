@@ -289,24 +289,22 @@
           <strong>Hours:</strong> Mon–Sun, 06:00–22:00
         </p>
       </div>
-      <iframe name="ssj-tours-frame" style="display:none;"></iframe>
-      <form id="toursForm" class="booking-form" action="https://formspree.io/f/xlgwlyjo" method="POST" target="ssj-tours-frame" onsubmit="handleToursSubmit(event)">
-        <input type="hidden" name="_subject" value="New Private Tour Enquiry — SSJ Exclusive" />
-        <div class="form-row"><label>Full name</label><input type="text" name="name" placeholder="Your name" required /></div>
-        <div class="form-row"><label>Email address</label><input type="email" name="email" placeholder="you@example.com" required /></div>
-        <div class="form-row"><label>Preferred date</label><input type="date" name="date" /></div>
+      <form id="toursForm" class="booking-form">
+        <div class="form-row"><label>Full name</label><input type="text" id="pt-name" placeholder="Your name" required /></div>
+        <div class="form-row"><label>Email address</label><input type="email" id="pt-email" placeholder="you@example.com" required /></div>
+        <div class="form-row"><label>Preferred date</label><input type="date" id="pt-date" /></div>
         <div class="form-row">
           <label>Tour type</label>
-          <select name="tour_type">
+          <select id="pt-type">
             <option>City highlights</option>
             <option>Cape Peninsula (Chapman's Peak + Cape Point)</option>
             <option>Hidden gems &amp; local spots</option>
             <option>Custom — I'll describe below</option>
           </select>
         </div>
-        <div class="form-row"><label>Group size</label><input type="text" name="group_size" placeholder="e.g. 2 adults, 1 child" /></div>
-        <div class="form-row"><label>What would you love to see or do?</label><textarea name="message" rows="4" placeholder="Be as specific or as vague as you like — we'll work with it"></textarea></div>
-        <button type="submit" id="toursSubmitBtn" class="btn-primary btn-full" style="border:none;cursor:pointer;font-family:'DM Sans',sans-serif;">Send Enquiry</button>
+        <div class="form-row"><label>Group size</label><input type="text" id="pt-group" placeholder="e.g. 2 adults, 1 child" /></div>
+        <div class="form-row"><label>What would you love to see or do?</label><textarea id="pt-message" rows="4" placeholder="Be as specific or as vague as you like — we'll work with it"></textarea></div>
+        <button type="button" id="toursSubmitBtn" class="btn-primary btn-full" style="border:none;cursor:pointer;font-family:'DM Sans',sans-serif;" onclick="handleToursSubmit()">Send Enquiry</button>
         <p id="toursSuccess" style="display:none;margin-top:12px;text-align:center;color:var(--gold);font-size:0.9rem;">&#10003; Enquiry sent! We'll be in touch within a few hours.</p>
         <p style="font-size:0.78rem;color:#888;text-align:center;margin-top:10px;">No payment required to enquire &bull; We reply within a few hours</p>
       </form>
@@ -332,18 +330,32 @@
 </footer>
 <script>
   document.getElementById('year').textContent=new Date().getFullYear();
-  function handleToursSubmit(e){
-    var btn=document.getElementById('toursSubmitBtn');
-    var form=document.getElementById('toursForm');
-    var success=document.getElementById('toursSuccess');
+  function handleToursSubmit(){
+    var name    = document.getElementById('pt-name').value.trim();
+    var email   = document.getElementById('pt-email').value.trim();
+    var date    = document.getElementById('pt-date').value;
+    var type    = document.getElementById('pt-type').value;
+    var group   = document.getElementById('pt-group').value.trim();
+    var message = document.getElementById('pt-message').value.trim();
+    var btn     = document.getElementById('toursSubmitBtn');
+    var success = document.getElementById('toursSuccess');
+    if (!name || !email) { alert('Please fill in your name and email address.'); return; }
     btn.disabled=true; btn.textContent='Sending\u2026';
-    setTimeout(function(){
-      form.querySelectorAll('input,textarea').forEach(function(el){el.value='';});
-      form.querySelectorAll('select').forEach(function(el){el.selectedIndex=0;});
-      btn.textContent='\u2713 Enquiry Sent!'; btn.style.background='#4a7c59';
-      success.style.display='block';
-      setTimeout(function(){btn.disabled=false;btn.textContent='Send Enquiry';btn.style.background='';success.style.display='none';},8000);
-    },1000);
+    fetch('https://formspree.io/f/xlgwlyjo',{
+      method:'POST',
+      headers:{'Accept':'application/json','Content-Type':'application/json'},
+      body:JSON.stringify({_subject:'New Private Tour Enquiry — SSJ Exclusive',name:name,email:email,date:date,tour_type:type,group_size:group,message:message})
+    })
+    .then(function(r){return r.json();})
+    .then(function(d){
+      if(d.ok){
+        ['pt-name','pt-email','pt-date','pt-group','pt-message'].forEach(function(id){document.getElementById(id).value='';});
+        document.getElementById('pt-type').selectedIndex=0;
+        btn.textContent='\u2713 Enquiry Sent!'; btn.style.background='#4a7c59'; success.style.display='block';
+        setTimeout(function(){btn.disabled=false;btn.textContent='Send Enquiry';btn.style.background='';success.style.display='none';},8000);
+      } else { btn.disabled=false; btn.textContent='Send Enquiry'; alert('Something went wrong. Please email info@ssjexclusive.com'); }
+    })
+    .catch(function(){btn.disabled=false;btn.textContent='Send Enquiry';alert('Something went wrong. Please email info@ssjexclusive.com');});
   }
 </script>
 </body>
