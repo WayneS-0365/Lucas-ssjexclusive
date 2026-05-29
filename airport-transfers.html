@@ -290,41 +290,32 @@
           <strong>Hours:</strong> Mon–Sun, 06:00–22:00
         </p>
       </div>
-      <iframe name="ssj-transfer-frame" style="display:none;"></iframe>
-      <form
-        id="transferForm"
-        class="booking-form"
-        action="https://formspree.io/f/xlgwlyjo"
-        method="POST"
-        target="ssj-transfer-frame"
-        onsubmit="handleTransferSubmit(event)"
-      >
-        <input type="hidden" name="_subject" value="New Airport Transfer Enquiry — SSJ Exclusive" />
+      <form id="transferForm" class="booking-form">
         <div class="form-row">
           <label>Full name</label>
-          <input type="text" name="name" placeholder="Your name" required />
+          <input type="text" id="tf-name" placeholder="Your name" required />
         </div>
         <div class="form-row">
           <label>Email address</label>
-          <input type="email" name="email" placeholder="you@example.com" required />
+          <input type="email" id="tf-email" placeholder="you@example.com" required />
         </div>
         <div class="form-row">
           <label>Flight number</label>
-          <input type="text" name="flight_number" placeholder="e.g. BA 059" />
+          <input type="text" id="tf-flight" placeholder="e.g. BA 059" />
         </div>
         <div class="form-row">
           <label>Arrival date</label>
-          <input type="date" name="arrival_date" />
+          <input type="date" id="tf-date" />
         </div>
         <div class="form-row">
           <label>Drop-off address</label>
-          <textarea name="destination" rows="3" placeholder="Hotel name, villa address, Airbnb — wherever you're headed"></textarea>
+          <textarea id="tf-destination" rows="3" placeholder="Hotel name, villa address, Airbnb — wherever you're headed"></textarea>
         </div>
         <div class="form-row">
           <label>Anything else?</label>
-          <textarea name="message" rows="2" placeholder="Group size, extra luggage, infant seat needed, etc."></textarea>
+          <textarea id="tf-message" rows="2" placeholder="Group size, extra luggage, infant seat needed, etc."></textarea>
         </div>
-        <button type="submit" id="transferSubmitBtn" class="btn-primary btn-full" style="border:none;cursor:pointer;font-family:'DM Sans',sans-serif;">Send Enquiry</button>
+        <button type="button" id="transferSubmitBtn" class="btn-primary btn-full" style="border:none;cursor:pointer;font-family:'DM Sans',sans-serif;" onclick="handleTransferSubmit()">Send Enquiry</button>
         <p id="transferSuccess" style="display:none;margin-top:12px;text-align:center;color:var(--gold);font-size:0.9rem;">&#10003; Enquiry sent! We'll be in touch within a few hours to confirm.</p>
         <p style="font-size:0.78rem;color:#888;text-align:center;margin-top:10px;">No payment required to enquire &bull; We reply within a few hours</p>
       </form>
@@ -378,29 +369,63 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  function handleTransferSubmit(e) {
-    var btn     = document.getElementById('transferSubmitBtn');
-    var form    = document.getElementById('transferForm');
-    var success = document.getElementById('transferSuccess');
+  function handleTransferSubmit() {
+    var name        = document.getElementById('tf-name').value.trim();
+    var email       = document.getElementById('tf-email').value.trim();
+    var flight      = document.getElementById('tf-flight').value.trim();
+    var date        = document.getElementById('tf-date').value;
+    var destination = document.getElementById('tf-destination').value.trim();
+    var message     = document.getElementById('tf-message').value.trim();
+    var btn         = document.getElementById('transferSubmitBtn');
+    var success     = document.getElementById('transferSuccess');
+
+    if (!name || !email) { alert('Please fill in your name and email address.'); return; }
 
     btn.disabled    = true;
     btn.textContent = 'Sending\u2026';
 
-    // Give Formspree time to receive via the hidden iframe, then show confirmation
-    setTimeout(function () {
-      form.querySelectorAll('input, textarea').forEach(function (el) { el.value = ''; });
-      form.querySelectorAll('select').forEach(function (el) { el.selectedIndex = 0; });
-      btn.textContent       = '\u2713 Enquiry Sent!';
-      btn.style.background  = '#4a7c59';
-      success.style.display = 'block';
-
-      setTimeout(function () {
-        btn.disabled         = false;
-        btn.textContent      = 'Send Enquiry';
-        btn.style.background = '';
-        success.style.display = 'none';
-      }, 8000);
-    }, 1000);
+    fetch('https://formspree.io/f/xlgwlyjo', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        _subject: 'New Airport Transfer Enquiry — SSJ Exclusive',
+        name: name,
+        email: email,
+        flight_number: flight,
+        arrival_date: date,
+        destination: destination,
+        message: message
+      })
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data.ok) {
+        document.getElementById('tf-name').value        = '';
+        document.getElementById('tf-email').value       = '';
+        document.getElementById('tf-flight').value      = '';
+        document.getElementById('tf-date').value        = '';
+        document.getElementById('tf-destination').value = '';
+        document.getElementById('tf-message').value     = '';
+        btn.textContent      = '\u2713 Enquiry Sent!';
+        btn.style.background = '#4a7c59';
+        success.style.display = 'block';
+        setTimeout(function() {
+          btn.disabled         = false;
+          btn.textContent      = 'Send Enquiry';
+          btn.style.background = '';
+          success.style.display = 'none';
+        }, 8000);
+      } else {
+        btn.disabled    = false;
+        btn.textContent = 'Send Enquiry';
+        alert('Something went wrong. Please email us directly at info@ssjexclusive.com');
+      }
+    })
+    .catch(function() {
+      btn.disabled    = false;
+      btn.textContent = 'Send Enquiry';
+      alert('Something went wrong. Please email us directly at info@ssjexclusive.com');
+    });
   }
 </script>
 </body>
