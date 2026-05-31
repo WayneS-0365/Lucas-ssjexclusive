@@ -5,11 +5,11 @@
     waNumber:       '27722726623',
     formspreeId:    'xlgwlyjo',
     services: [
-      { id: 'transfer',  label: 'Airport transfer',    icon: 'plane-arrival',   from: 'R650'   },
-      { id: 'city',      label: 'City tour',            icon: 'map-pin',         from: 'R1,200' },
-      { id: 'peninsula', label: 'Peninsula tour',       icon: 'mountain',        from: 'R1,800' },
-      { id: 'wine',      label: 'Winelands day trip',   icon: 'glass-full',      from: 'R1,500' },
-      { id: 'return',    label: 'Return transfer',      icon: 'plane-departure', from: 'R650'   },
+      { id: 'transfer',  label: 'Airport transfer',    icon: 'plane-arrival',   from: 'Enquire'   },
+      { id: 'city',      label: 'City tour',            icon: 'map-pin',         from: 'Enquire' },
+      { id: 'peninsula', label: 'Peninsula tour',       icon: 'mountain',        from: 'Enquire' },
+      { id: 'wine',      label: 'Winelands day trip',   icon: 'glass-full',      from: 'Enquire' },
+      { id: 'return',    label: 'Return transfer',      icon: 'plane-departure', from: 'Enquire'   },
       { id: 'custom',    label: 'Custom request',       icon: 'adjustments',     from: 'Enquire'}
     ]
   };
